@@ -1,0 +1,35 @@
+html{
+    font-family: $font-main;
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: $color-second;
+}
+.heading{
+    font-family: $font-heading;
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 1rem 0;
+   
+    
+}
+
+.btn{
+    background-color: $color-fourth;
+    color: $color-second;
+    text-decoration: none;
+    padding: .3rem 1.5rem;
+    border-radius: 2.5px;
+    transition: all .25s ease-in;
+    box-shadow: 2.5px 2.5px 7px #0000005a;
+    align-self: center;
+    margin: 2rem 0;
+
+    &--smaller{
+        padding: .15rem 0.75rem;
+    }
+}
+
+.btn:hover{
+    background-color: $color-third;
+  
+}
