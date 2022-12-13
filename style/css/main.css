@@ -108,6 +108,7 @@ html {
 .benefit__heading {
   margin: 1rem 0 0.25rem;
   font-weight: 500;
+  height: auto;
 }
 .benefit__desc {
   text-align: center;
@@ -170,6 +171,75 @@ html {
   height: 1rem;
 }
 
+.opinionsSection__heading {
+  margin: 1.5rem;
+}
+.opinionsSection__line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #372527;
+}
+.opinionsSection__header {
+  display: flex;
+  gap: 2rem;
+}
+.opinionsSection__header__tittle {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.opinionsSection__opinions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.opinionsSection__opinions__article {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+.opinionsSection__opinions__article__rating {
+  display: flex;
+  flex-direction: row;
+}
+.opinionsSection__opinions__article__svg {
+  width: 1.5rem;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column: 1/4;
+}
+.login__label {
+  color: #0A210F;
+}
+.login__input {
+  margin-bottom: 1rem;
+  height: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 2.5px 2.5px 7px rgba(0, 0, 0, 0.3529411765);
+}
+.login__input:focus {
+  outline: none;
+}
+.login__btn {
+  outline: none;
+  border: none;
+  box-shadow: 2.5px 2.5px 7px rgba(0, 0, 0, 0.3529411765);
+  font-size: 0.75rem;
+}
+.login__paragraph {
+  margin-bottom: 1rem;
+  color: #0A210F;
+  text-align: center;
+  width: 100%;
+}
+
 .headerShop {
   background-color: #FFFFFF;
 }
@@ -218,9 +288,12 @@ html {
 }
 
 .main {
+  margin: 0 auto;
+  width: 80%;
   padding: 2rem;
   display: grid;
-  grid-template-columns: repeat(3, min-content);
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 22rem;
   justify-content: center;
   grid-gap: 1rem;
 }
@@ -228,27 +301,37 @@ html {
 .productBox {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
   color: #0A210F;
   padding: 0.5rem;
 }
 .productBox__img {
   width: 15rem;
+  object-fit: fill;
 }
-.productBox__info__heading {
+.productBox__info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.productBox__info__desc__heading {
   font-weight: 400;
   margin: 0.5rem 0;
 }
-.productBox__info__desc {
+.productBox__info__desc__desc {
   font-size: 0.75rem;
 }
 .productBox__info__buy {
+  height: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.productBox:nth-child(2) {
-  padding: 0 1.5rem;
+.productBox:nth-child(3n+2) {
+  padding: 0.5rem 1.5rem;
   border-left: 1px solid rgba(179, 172, 172, 0.311);
   border-right: 1px solid rgba(179, 172, 172, 0.311);
 }
