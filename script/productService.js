@@ -8,13 +8,13 @@ const getProducts = async() => {
     }
 }
 
-    
-const getProductsByCategoryId = async(id) => {
+const getProductsByCategory = async( productCategoryId ) => {
     try{
-        const response = await fetch(`http://localhost:8081/api/v1/product/productCategory=${id}`)
+        const response = await fetch(`http://localhost:8081/api/v1/product/productCategory=${productCategoryId }`)
         const json = await response.json();
         return Promise.resolve(json);
     }catch (e) {
         return Promise.reject(e);
     }
 }
+    

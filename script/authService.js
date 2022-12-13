@@ -15,7 +15,7 @@ const login = async (nickname, password) => {
         const json =await response.json();
         const token = json.token;
         localStorage.setItem('token', token);
-console.log(token)
+        console.log(token)
         return Promise.resolve();
 
     }catch (e) {
