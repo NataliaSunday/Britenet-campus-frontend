@@ -1,6 +1,8 @@
 function getCartContent(){
+    
     getCartContentOfUser()
     .then( cartProduct => {
+        
         const cartProductElement = document.querySelector('#cart');
         cartProduct.forEach(cartProduct => {
             console.log(cartProduct);
