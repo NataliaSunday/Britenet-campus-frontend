@@ -255,3 +255,25 @@
         width: 100%;
     }
 }
+
+.footer{
+    @include display-flex-row-spaceBetween;
+    @include padding;
+
+    background-color: $color-primary-dark;
+    font-weight: 200;
+    font-size: 0.75rem;
+
+    &__nav{
+        @include  display-flex-col;
+    }
+    &__heading{
+        font-weight: 500;
+        margin-bottom: .5rem;
+    }
+
+    &__img{
+        width: 15rem;
+       
+    }
+}
