@@ -7,14 +7,16 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
     
+    @include padding;
+    
 }
 .nav{
-  
+    
+    @include display-flex-row-spaceBetween;
+
     background-color: transparent;
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 2rem;
     font-size: 1.5rem;
+   color: $color-primary;
 
    
     &__list{
@@ -24,9 +26,7 @@
         color: $color-primary;
         margin: 0 1rem;
 
-        &--active{
-            font-weight: 400;
-        }
+       
         }
 
         &__item:hover{

@@ -12,3 +12,14 @@ const getCartContentOfUser = async() => {
     }
 }
     
+const delCartProductOne = async(idCartProduct) => {
+    try{
+        const response = await fetch(`http://localhost:8081/api/v1/cartProduct/${idCartProduct}`, {
+            method: 'DELETE'
+        });
+        const json = await response.json();
+        return Promise.resolve(json);
+    }catch (e) {
+        return Promise.reject(e);
+    }
+}

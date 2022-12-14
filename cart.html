@@ -14,7 +14,7 @@
     <script src="script/loginScript.js" defer></script>
     <script src="script/cartProduct.js" defer></script>
     <script src="script/cartProductService.js" defer></script>
-    <script src="script/cartLoading.js"></script>
+
 </head>
 <body>
     <header class="headerShop">
@@ -53,23 +53,39 @@
     </nav>
 </header>
 
-<main class="cart" >
+<main class="cart" id="main--cart">
    <h3>Your cart:</h3>
    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum dolor eius atque enim aliquid labore deleniti maxime aliquam non, totam a officiis sapiente asperiores veniam. Quidem libero hic dignissimos omnis.</p>
 
 
-  <table class="cart__table">
-    <thead class="cart__table__head">
-        <tr>
-            <th class="cart__table__headCol"></th>
-            <th class="cart__table__headCol">Name</th>
-            <th class="cart__table__headCol">How many</th>
-            <th class="cart__table__headCol">Price</th>
-        </tr>
-    </thead>
-    <tbody class="cart__table__body" id="cart">
-    </tbody>
-  </table>
+  <div class="cartBox">
+    <table class="cart__table">
+        <thead class="cart__table__head">
+            <tr>
+                <th class="cart__table__headCol"></th>
+                <th class="cart__table__headCol">Name</th>
+                <th class="cart__table__headCol">How many</th>
+                <th class="cart__table__headCol">Price</th>
+            </tr>
+        </thead>
+        <tbody class="cart__table__body" id="cart">
+        </tbody>
+      </table>
+      <form onsubmit="addorder()" class="form">
+        <label for="country" class="form__label">Country:</label>
+        <input type="text" class="form__input" id="country">
+        <label for="city" class="form__label">City:</label>
+        <input type="text" class="form__input" id="city">
+        <label for="homeNumber" class="form__label">Home number:</label>
+        <input type="text" class="form__input" id="homeNumber">
+        <label for="zipCode" class="form__label">zip code:</label>
+        <input type="text" class="form__input" id="zipCode">
+        <label for="eMail" class="form__label">E-mail:</label>
+        <input type="text" class="form__input" id="eMail">
+        <input type="submit" class="btn btn--submit" >
+      </form>
+  </div>
+  
 </main>
 </body>
 </html>

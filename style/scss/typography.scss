@@ -2,7 +2,7 @@ html{
     font-family: $font-main;
     font-weight: 300;
     font-size: 1.5rem;
-    color: $color-second;
+    color: $color-primary;
 }
 .heading{
     font-family: $font-heading;
@@ -24,12 +24,12 @@ html{
     align-self: center;
     margin: 2rem 0;
 
-    &--smaller{
-        padding: .15rem 0.75rem;
+    &--submit{
+        border: none;
     }
+ 
 }
 
 .btn:hover{
     background-color: $color-third;
-  
 }
