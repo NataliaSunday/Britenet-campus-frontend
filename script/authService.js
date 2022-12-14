@@ -11,24 +11,20 @@ const login = async (nickname, password) => {
             })
 
         });
-        console.log(nickname + " " + password)
-        const json =await response.json();
-        const token = json.token;
-        localStorage.setItem('token', token);
-        console.log(token)
-        return Promise.resolve();
-
+        if(response.status === 200){
+            console.log(nickname + " " + password)
+            const json =await response.json();
+            const token = json.token;
+            localStorage.setItem('token', token);
+            return Promise.resolve();
+    
+        }else{
+            localStorage.removeItem('token');
+            return Promise.reject();
+        }
+      
     }catch (e) {
+        localStorage.removeItem('token');
         return Promise.reject(e);
     }
 }
-/*
-const getOrder = () => {
-    const token = localStorage.getItem('token');
-    const response = fetch('...', {
-        method: 'GET',
-        headers: {
-            'Auyhorization' : token
-        }
-    })
-}/*/

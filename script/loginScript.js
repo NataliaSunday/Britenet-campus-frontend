@@ -28,4 +28,4 @@ function auth(){
         <input type="submit" class="login__btn btn" >
         </form>
         `
-    }
+}

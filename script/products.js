@@ -26,7 +26,6 @@ function getProd() {
 
 
 function getProdByCat(cat) {
-
     getProductsByCategory(cat)
     .then( products => {
 
@@ -58,6 +57,5 @@ const params = new URLSearchParams(url);
 
 if(params.has('productCategory')){
     const categortId = params.get('productCategory');
-    console.log(categortId);
-    getProdByCat(categortId)
+    getProdByCat(categortId);
 }

@@ -240,6 +240,37 @@ html {
   width: 100%;
 }
 
+.cart {
+  padding: 3rem;
+  color: #0A210F;
+}
+.cart__table {
+  background-color: #F4F0F0;
+  text-align: center;
+  height: min-content;
+}
+.cart__table__head {
+  font-weight: 300;
+}
+.cart__table__body__svg {
+  opacity: 1;
+  width: 1rem;
+  fill: red;
+  cursor: pointer;
+}
+.cart__table__col {
+  background-color: #FFFFFF;
+  padding: 0.5rem;
+}
+.cart__table__col--svg {
+  background-color: transparent;
+}
+.cart__table__headCol {
+  text-align: left;
+  padding: 0.5rem;
+  font-weight: 400;
+}
+
 .headerShop {
   background-color: #FFFFFF;
 }

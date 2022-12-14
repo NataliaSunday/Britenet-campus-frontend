@@ -1,0 +1,48 @@
+.cart{
+    padding: 3rem;
+    color: $color-primary-dark;
+   
+
+    &__table{
+        background-color: $color-primary;
+        text-align: center;
+        height: min-content;
+
+        &__head{
+            
+            
+            font-weight: 300;
+        }
+
+        &__body{
+
+            &__svg{
+                opacity: 1;
+                width: 1rem;
+                fill: red;
+                cursor: pointer;
+            }
+        }
+
+        &__col{
+         
+            background-color: $color-second;
+            padding: .5rem;
+
+            &--svg{
+                background-color: transparent;
+            
+            }
+           
+           
+        }
+        
+        
+        &__headCol{
+            text-align: left;
+            padding: .5rem;
+            font-weight: 400;
+        }
+
+    }
+}
