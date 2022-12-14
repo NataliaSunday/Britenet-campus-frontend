@@ -14,6 +14,7 @@
     <script src="script/loginScript.js" defer></script>
     <script src="script/cartProduct.js" defer></script>
     <script src="script/cartProductService.js" defer></script>
+    <script src="script/orderService.js" defer></script>
 
 </head>
 <body>
@@ -71,17 +72,25 @@
         <tbody class="cart__table__body" id="cart">
         </tbody>
       </table>
-      <form onsubmit="addorder()" class="form">
+      <form class="form" onsubmit="addOrder(event)">
         <label for="country" class="form__label">Country:</label>
         <input type="text" class="form__input" id="country">
+
         <label for="city" class="form__label">City:</label>
         <input type="text" class="form__input" id="city">
+
         <label for="homeNumber" class="form__label">Home number:</label>
         <input type="text" class="form__input" id="homeNumber">
+
         <label for="zipCode" class="form__label">zip code:</label>
         <input type="text" class="form__input" id="zipCode">
+        
+        <label for="phoneNumber" class="form__label">Phone number:</label>
+        <input type="text" class="form__input" id="phoneNumber">
+
         <label for="eMail" class="form__label">E-mail:</label>
         <input type="text" class="form__input" id="eMail">
+
         <input type="submit" class="btn btn--submit" >
       </form>
   </div>

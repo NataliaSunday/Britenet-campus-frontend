@@ -13,7 +13,7 @@ function getProd() {
                     <p class="productBox__info__desc">${product.desc}</p>
                 <div class="productBox__info__buy">
                     <p class="productBox__info__bou__price">${product.price}$</p>
-                    <a href="shop.html" class="btn btn--smaller" role="button">SHOP</a>
+                    <a href="shop.html" class="btn" role="button">Buy</a>
                 </div>
             </div>
         </article>
@@ -39,8 +39,8 @@ function getProdByCat(cat) {
                     <p class="productBox__info__heading">${product.name}</p>
                     <p class="productBox__info__desc">${product.desc}</p>
                 <div class="productBox__info__buy">
-                    <p class="productBox__info__bou__price">${product.price}$</p>
-                    <a href="shop.html" class="btn btn--smaller" role="button">SHOP</a>
+                    <p class="productBox__info__bou__price">${product.price}$</p> 
+                    <a href="#" class="btn" role="button">Buy</a>
                 </div>
             </div>
         </article>
@@ -59,3 +59,5 @@ if(params.has('productCategory')){
     const categortId = params.get('productCategory');
     getProdByCat(categortId);
 }
+
+
