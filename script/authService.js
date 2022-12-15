@@ -28,3 +28,25 @@ const login = async (nickname, password) => {
         return Promise.reject(e);
     }
 }
+
+const getUserCart = async() =>{
+
+    try{
+        const response = await fetch('http://localhost:8081/api/v1/cart/cartUser',{
+            method: 'GET',
+            headers: {
+                'Content-type' : 'application/json',
+                'Authorization' : localStorage.getItem('token')
+            }
+        });
+            const json =await response.json();
+            console.log(json)
+            const cartId = json.idCart;
+            localStorage.setItem('cartId', cartId);
+            return Promise.resolve(json);
+    }catch (e) {
+        return Promise.reject(e);
+    }
+
+}
+

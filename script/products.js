@@ -108,10 +108,11 @@ const addToCart = async() => {
         const params = new URLSearchParams(url);
        
         let prodId = params.get('productId');
-       
+        let cartId = localStorage.getItem('cartId');
+       console.log(JSON.stringify(cartId));
             let data = new FormData();
             data.append("idProduct", prodId);
-            data.append("idCart",  64);
+            data.append("idCart",  cartId);
             data.append("howMany",9);
             data.append("price", 99.0)
             

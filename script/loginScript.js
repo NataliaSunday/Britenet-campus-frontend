@@ -5,7 +5,7 @@ const performLogin = () => {
     login(nickname, password)
     .then( _ => {
         alert('Logged In!');
-       
+       getUserCart();
         document.dispatchEvent(new CustomEvent('login_event'));
     })
     .catch( e => {
@@ -31,6 +31,8 @@ function auth(){
         
         `
 }
+
+
 
 function logout(){
     window.localStorage.clear();

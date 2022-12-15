@@ -2,7 +2,7 @@ window.addEventListener('load', function () {
     if(localStorage.getItem('token')){
         getCartContent();
         let cart = document.getElementById('main--cart');
-        cart.classList.remove('displayNone')
+        cart.classList.remove('displayNone');
         
     }else{
         let cart = document.getElementById('main--cart');
