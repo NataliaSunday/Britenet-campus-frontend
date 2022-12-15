@@ -101,37 +101,41 @@ function getProdById(prodId) {
     })
 } 
 
-const addToCart = async(e) => {
+const addToCart = async() => {
     
-     
-    const url = window.location.search;
-    const params = new URLSearchParams(url);
-   
-    let prodId = params.get('productId');
-   
-        let data = new FormData();
-        data.append("idProduct", prodId);
-        data.append("idCart",  64);
-        data.append("howMany",9);
-        data.append("price", 99.0)
-        
-     
-        let dataJSON = Object.fromEntries(data.entries()); 
+     if(localStorage.getItem('token')){
+        const url = window.location.search;
+        const params = new URLSearchParams(url);
        
-             try{
-                 const response = await fetch(`http://localhost:8081/api/v1/cartProduct`, {
-                     headers: {
-                         'Content-type' : 'application/json',
-                         'Authorization' : localStorage.getItem('token')
-                     },
-                     method : 'POST',
-                     body : JSON.stringify(dataJSON)
-                 });
-                 const json = await response.json();
-                 alert("Thank you for your order");
-                 return Promise.resolve(json);
-             }catch (e) {
-                 return Promise.reject(e);
-             }
+        let prodId = params.get('productId');
+       
+            let data = new FormData();
+            data.append("idProduct", prodId);
+            data.append("idCart",  64);
+            data.append("howMany",9);
+            data.append("price", 99.0)
+            
+         
+            let dataJSON = Object.fromEntries(data.entries()); 
+           
+                 try{
+                     const response = await fetch(`http://localhost:8081/api/v1/cartProduct`, {
+                         headers: {
+                             'Content-type' : 'application/json',
+                             'Authorization' : localStorage.getItem('token')
+                         },
+                         method : 'POST',
+                         body : JSON.stringify(dataJSON)
+                     });
+                     const json = await response.json();
+                     alert("Thank you for your order");
+                     return Promise.resolve(json);
+                 }catch (e) {
+                     return Promise.reject(e);
+                 }
+         }else{
+            alert("You need login");
+         }
+         
      }
-     
+   
