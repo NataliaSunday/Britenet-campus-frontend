@@ -4,8 +4,8 @@ window.addEventListener('load', function () {
         
     }else{
         let cart = document.getElementById('main--cart');
-        cart.style.display = "none";
-     
+        cart.style.display = 'none';
+       alert("You need to log in");
     }
   
   });

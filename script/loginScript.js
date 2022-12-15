@@ -27,5 +27,8 @@ function auth(){
         <input type="password" id="password" class="login__input">
         <input type="submit" class="login__btn btn" >
         </form>
+        <button onclick = localStorage.removeItem('token')>end</button>
         `
 }
+
+
