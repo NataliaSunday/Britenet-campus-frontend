@@ -1,10 +1,12 @@
 window.addEventListener('load', function () {
     if(localStorage.getItem('token')){
         getCartContent();
+        let cart = document.getElementById('main--cart');
+        cart.classList.remove('displayNone')
         
     }else{
         let cart = document.getElementById('main--cart');
-        cart.style.display = 'none';
+        cart.classList.add('displayNone')
        alert("You need to log in");
     }
   

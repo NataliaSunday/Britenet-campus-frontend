@@ -5,6 +5,7 @@ const performLogin = () => {
     login(nickname, password)
     .then( _ => {
         alert('Logged In!');
+       
         document.dispatchEvent(new CustomEvent('login_event'));
     })
     .catch( e => {
@@ -27,8 +28,20 @@ function auth(){
         <input type="password" id="password" class="login__input">
         <input type="submit" class="login__btn btn" >
         </form>
-        <button onclick = localStorage.removeItem('token')>end</button>
+        
         `
 }
 
-
+function logout(){
+    window.localStorage.clear();
+    window.location.reload(true);
+    alert("You are logout")
+}
+if(!localStorage.getItem('token') ){
+    let displays = document.querySelector('#logout');
+    displays.classList.add('displayNone');
+    
+}else{
+    let displays = document.querySelector('#logout');
+    displays.classList.remove('displayNone');
+}

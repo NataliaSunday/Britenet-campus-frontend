@@ -353,6 +353,9 @@ html {
   height: 1.5rem;
   cursor: pointer;
 }
+.navShop__svg--logout {
+  display: none;
+}
 
 .products {
   margin: 0 auto;
@@ -448,6 +451,10 @@ main {
 }
 .form__input:focus {
   outline: none;
+}
+
+.displayNone {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */
