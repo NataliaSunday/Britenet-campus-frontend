@@ -103,10 +103,32 @@
             
             }
         }
+
+}
+.productPage{
+    grid-column: 1/4;
+    gap: 1rem;
+    height: min-content;
+    color: $color-primary-dark;
+    padding: .5rem;
+    @include display-flex-row-spaceBetween;
+
+    &__info{
+        @include display-flex-col-spaceBetween;
+    }
+    &__img{
+        width:15rem;
+        height: min-content;
+    }
+
 }
 
 .productBox:nth-child(3n + 2){
     padding: 0.5rem 1.5rem;
     border-left: 1px solid rgba(179, 172, 172, 0.311);
     border-right: 1px solid rgba(179, 172, 172, 0.311);
+}
+main{
+    min-height: 100vh;
+
 }

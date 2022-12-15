@@ -32,12 +32,6 @@ function getCartContent(){
     })
 }
 
-function displayTarget(target, id){
-    console.log(id)
-    console.log(target.parentElement);
-    target.parentElement.remove();
-}
-
 function deleteCartProduct(target, idCartProduct){
    
     delCartProductOne(idCartProduct)
@@ -63,6 +57,4 @@ function deleteCartProduct(target, idCartProduct){
         }).catch(e => {
             console.log(e);
         }))
-    
-   
 }

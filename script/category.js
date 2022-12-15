@@ -15,7 +15,10 @@ function addParam(id){
 
     const url = window.location.search;
     const params = new URLSearchParams(url);
+    params.delete('productId')
     params.set('productCategory', id);
+   
     window.location.search = params;
+   
     window.location.href="/shop.html?"+params;
 }

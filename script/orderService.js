@@ -17,7 +17,6 @@ const addOrder = async(e) => {
 
    let dataJSON = Object.fromEntries(data.entries()); 
   
- 
         try{
             const response = await fetch(`http://localhost:8081/api/v1/order`, {
                 headers: {
@@ -33,4 +32,4 @@ const addOrder = async(e) => {
         }catch (e) {
             return Promise.reject(e);
         }
-    }
+}

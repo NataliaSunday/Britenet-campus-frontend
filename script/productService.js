@@ -18,3 +18,12 @@ const getProductsByCategory = async( productCategoryId ) => {
     }
 }
     
+const getProductById = async ( productId ) => {
+    try{
+        const response = await fetch(`http://localhost:8081/api/v1/product/${productId}`)
+        const json = await response.json();
+        return Promise.resolve(json);
+    }catch (e) {
+        return Promise.reject(e);
+    }
+}

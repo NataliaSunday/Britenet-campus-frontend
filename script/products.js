@@ -1,3 +1,26 @@
+
+const url = window.location.search;
+const params = new URLSearchParams(url);
+
+if(params.has('productCategory')){
+    const categortId = params.get('productCategory');
+    getProdByCat(categortId);
+}
+if(params.has('productId')){
+   
+    const prodId = params.get('productId');
+    getProdById(prodId);
+}
+
+function seeProduct(productId){
+    const url = window.location.search;
+    const params = new URLSearchParams(url);
+    params.delete('productCategory')
+    params.set('productId', productId);
+    window.location.search = params;
+}
+
+
 function getProd() {
     getProducts()
     .then( products => {
@@ -24,8 +47,8 @@ function getProd() {
     })
 } 
 
-
 function getProdByCat(cat) {
+    
     getProductsByCategory(cat)
     .then( products => {
 
@@ -40,7 +63,7 @@ function getProdByCat(cat) {
                     <p class="productBox__info__desc">${product.desc}</p>
                 <div class="productBox__info__buy">
                     <p class="productBox__info__bou__price">${product.price}$</p> 
-                    <a href="#" class="btn" role="button">Buy</a>
+                    <a href="#" class="btn" role="button" onclick=seeProduct(${product.id})>Buy</a>
                 </div>
             </div>
         </article>
@@ -51,13 +74,64 @@ function getProdByCat(cat) {
     })
 } 
 
+function getProdById(prodId) {  
+    getProductById(prodId)
 
-const url = window.location.search;
-const params = new URLSearchParams(url);
+    .then( product => {
 
-if(params.has('productCategory')){
-    const categortId = params.get('productCategory');
-    getProdByCat(categortId);
-}
+        const productsElement = document.querySelector('#products');
+       productsElement.innerHTML = " ";
+            console.log(product)
+            productsElement.innerHTML += `
+            <article class="productPage">
+            <img src="${product.imagePath}" alt="bean" class="productPage__img">
+            <div class="productPage__info">
+                    <p class="productBox__info__heading">${product.name}</p>
+                    <p class="productBox__info__desc">${product.desc}</p>
+                <div class="productPage__info__buy">
+                    <p class="productBox__info__bou__price">${product.price}$</p> 
+                    <a href="#" class="btn" role="button" onclick="addToCart()">Buy</a>
+                </div>
+            </div>
+        </article>
+            `
+        
+    }).catch(e => {
+        console.log(e);
+    })
+} 
 
-
+const addToCart = async(e) => {
+    
+     
+    const url = window.location.search;
+    const params = new URLSearchParams(url);
+   
+    let prodId = params.get('productId');
+   
+        let data = new FormData();
+        data.append("idProduct", prodId);
+        data.append("idCart",  64);
+        data.append("howMany",9);
+        data.append("price", 99.0)
+        
+     
+        let dataJSON = Object.fromEntries(data.entries()); 
+       
+             try{
+                 const response = await fetch(`http://localhost:8081/api/v1/cartProduct`, {
+                     headers: {
+                         'Content-type' : 'application/json',
+                         'Authorization' : localStorage.getItem('token')
+                     },
+                     method : 'POST',
+                     body : JSON.stringify(dataJSON)
+                 });
+                 const json = await response.json();
+                 alert("Thank you for your order");
+                 return Promise.resolve(json);
+             }catch (e) {
+                 return Promise.reject(e);
+             }
+     }
+     

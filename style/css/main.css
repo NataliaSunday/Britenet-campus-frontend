@@ -397,10 +397,34 @@ html {
   align-items: center;
 }
 
+.productPage {
+  grid-column: 1/4;
+  gap: 1rem;
+  height: min-content;
+  color: #0A210F;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.productPage__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.productPage__img {
+  width: 15rem;
+  height: min-content;
+}
+
 .productBox:nth-child(3n+2) {
   padding: 0.5rem 1.5rem;
   border-left: 1px solid rgba(179, 172, 172, 0.311);
   border-right: 1px solid rgba(179, 172, 172, 0.311);
+}
+
+main {
+  min-height: 100vh;
 }
 
 .form {
