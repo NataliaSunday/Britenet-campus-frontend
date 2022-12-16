@@ -1,8 +1,9 @@
 const addOrder = async(e) => {
    e.preventDefault();
+   
 
    let data = new FormData();
-   data.append("idUser", 60);
+
    data.append("orderDate",  "2021-12-11");
    data.append("country", document.getElementById("country").value);
    data.append("city", document.getElementById("city").value)
@@ -27,9 +28,31 @@ const addOrder = async(e) => {
                 body : JSON.stringify(dataJSON)
             });
             const json = await response.json();
+
+
+            addProductOrder();
             alert("Thank you for your order");
             return Promise.resolve(json);
         }catch (e) {
             return Promise.reject(e);
         }
+}
+
+const addProductOrder = async () => {
+   
+    try{
+        const response = await fetch(`http://localhost:8081/api/v1/cartProduct/addCartProductToUserProduct`, {
+            headers: {
+                'Content-type' : 'application/json',
+                'Authorization' : localStorage.getItem('token')
+            },
+            method : 'POST',
+           
+        });
+        const json = await response.json();
+        alert("Thank you for your order");
+        return Promise.resolve(json);
+    }catch (e) {
+        return Promise.reject(e);
+    }
 }

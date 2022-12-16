@@ -1,17 +1,4 @@
 
-const url = window.location.search;
-const params = new URLSearchParams(url);
-
-if(params.has('productCategory')){
-    const categortId = params.get('productCategory');
-    getProdByCat(categortId);
-}
-if(params.has('productId')){
-   
-    const prodId = params.get('productId');
-    getProdById(prodId);
-}
-
 function seeProduct(productId){
     const url = window.location.search;
     const params = new URLSearchParams(url);
@@ -140,3 +127,17 @@ const addToCart = async() => {
          
      }
    
+
+     const url = window.location.search;
+     const params = new URLSearchParams(url);
+     
+     if(params.has('productCategory')){
+         const categortId = params.get('productCategory');
+         getProdByCat(categortId);
+     }
+     if(params.has('productId')){
+        
+         const prodId = params.get('productId');
+         getProdById(prodId);
+     }
+     
