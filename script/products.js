@@ -11,7 +11,6 @@ function seeProduct(productId){
 function getProd() {
     getProducts()
     .then( products => {
-
         const productsElement = document.querySelector('#products');
         products.forEach(product => {
             console.log(product)
@@ -34,8 +33,8 @@ function getProd() {
     })
 } 
 
+
 function getProdByCat(cat) {
-    
     getProductsByCategory(cat)
     .then( products => {
 
@@ -61,6 +60,7 @@ function getProdByCat(cat) {
     })
 } 
 
+
 function getProdById(prodId) {  
     getProductById(prodId)
 
@@ -76,34 +76,35 @@ function getProdById(prodId) {
                     <p class="productBox__info__heading">${product.name}</p>
                     <p class="productBox__info__desc">${product.desc}</p>
                 <div class="productPage__info__buy">
+                    <label for="howMany" class="form__label">How many</label>
+                    <input type="number" class="form__input" id="howMany" value="1"> 
                     <p class="productBox__info__bou__price">${product.price}$</p> 
-                    <a href="#" class="btn" role="button" onclick="addToCart()">Buy</a>
+                    
+                    <a href="#" class="btn" role="button" onclick="addToCart(${product.price})">Buy</a>
                 </div>
             </div>
         </article>
             `
-        
     }).catch(e => {
         console.log(e);
     })
 } 
 
-const addToCart = async() => {
-    
+const addToCart = async(prodPrice) => {
      if(localStorage.getItem('token')){
         const url = window.location.search;
         const params = new URLSearchParams(url);
        
         let prodId = params.get('productId');
         let cartId = localStorage.getItem('cartId');
-       console.log(JSON.stringify(cartId));
-            let data = new FormData();
-            data.append("idProduct", prodId);
-            data.append("idCart",  cartId);
-            data.append("howMany",9);
-            data.append("price", 99.0)
+   
+        let data = new FormData();
+        data.append("idProduct", prodId);
+        data.append("idCart",  cartId);
+        data.append("howMany", document.getElementById("howMany").value);
+        data.append("price", prodPrice)
             
-         
+
             let dataJSON = Object.fromEntries(data.entries()); 
            
                  try{
