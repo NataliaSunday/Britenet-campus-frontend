@@ -14,6 +14,7 @@
     <script src="script/products.js" defer></script>
     <script src="script/cartProduct.js" defer></script>
     <script src="script/cartProductService.js" defer></script>
+    <script src="script/userService.js" defer></script>
 </head>
 <body>
     <header class="headerShop">
@@ -52,16 +53,40 @@
 </header>
 
 <main class="main" id="main">
-    <form class="login__form" onsubmit="return performLogin()">
-        <p class="login__paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, debitis. Eos facilis nulla sed nesciunt assumenda nemo culpa, distinctio beatae quas architecto aperiam laboriosam magnam rem praesentium, quisquam quo inventore?</p>
-        <label for="nickname" class="login__label">Nickname:</label>
-        <input type="text" id="nickname" class="login__input">
-        <label for="password" class="login__label">Password:</label>
-        <input type="password" id="password" class="login__input">
+    <form class="form form--login" onsubmit="return performLogin()" id="loginForm">
+        <p class="form__desc">Hi! Log in to make a order and see your data.</p>
+        <label for="nickname" class="form__label">Nickname:</label>
+        <input type="text" id="nickname" class="form__input">
+        <label for="password" class="form__label">Password:</label>
+        <input type="password" id="password" class="form__input">
        <input type="submit" class="btn btn--submit" >
       </form>
+      <section class="account" id="account">
+        <h2 class="account__heading">Welcom on your account.</h2>
+        <article class="account__data">
+            <p>Here is your data</p>
+            <ul class="account list account__list" id="accountData">
+                
+            </ul>
+        </article>
+        <article class="account__orders">
+            <p>Here is your order history</p>
+            <table class="table">
+                <thead class="table__head">
+                    <tr>
+                        <th class="table__headCol">Order ID</th>
+                        <th class="table__headCol">Date</th>
+                        <th class="table__headCol">Status</th>
+                        <th class="table__headCol">Total value</th>
+                    </tr>
+                </thead>
+                <tbody class="table__body" id="userOrders">
+                </tbody>
+              </table>
+        </article>
+      </section>
 
-      <button onclick="logout()">log out</button>
+      
 </main>
 
 <footer class="footer">

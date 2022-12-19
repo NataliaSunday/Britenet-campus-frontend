@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+body {
+  color: #0A210F;
+}
+
 html {
   font-family: "Jost", sans-serif;
   font-weight: 300;
@@ -451,6 +455,67 @@ main {
 }
 .form__input:focus {
   outline: none;
+}
+.form--login {
+  align-self: center;
+}
+.form__desc {
+  margin-bottom: 1rem;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list {
+  list-style: none;
+  padding: 2rem;
+  border: 1px solid white;
+  background-color: #5CF16B;
+  color: white;
+}
+
+.account {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "heading . ." "data order order";
+  justify-content: stretch;
+  grid-gap: 1rem;
+}
+.account__heading {
+  grid-area: "heading";
+}
+.account__data {
+  grid-area: data;
+}
+.account__orders {
+  grid-area: order;
+}
+.account .list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.table {
+  background-color: #F4F0F0;
+  text-align: center;
+  height: min-content;
+}
+.table__head {
+  font-weight: 300;
+}
+.table__col {
+  background-color: #FFFFFF;
+  padding: 0.5rem;
+}
+.table__headCol {
+  text-align: left;
+  padding: 0.5rem;
+  font-weight: 400;
 }
 
 .displayNone {

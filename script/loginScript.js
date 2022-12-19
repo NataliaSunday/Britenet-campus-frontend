@@ -5,6 +5,8 @@ const performLogin = () => {
     login(nickname, password)
     .then( _ => {
         alert('Logged In!');
+        
+        window.location.href = "login.html";
        getUserCart();
         document.dispatchEvent(new CustomEvent('login_event'));
     })
@@ -42,8 +44,17 @@ function logout(){
 if(!localStorage.getItem('token') ){
     let displays = document.querySelector('#logout');
     displays.classList.add('displayNone');
+
+    let account = document.querySelector("#account");
+    account.classList.add("displayNone");
+
+    
     
 }else{
     let displays = document.querySelector('#logout');
     displays.classList.remove('displayNone');
+
+    let loginForm = document.querySelector("#loginForm");
+    loginForm.classList.add("displayNone");
 }
+

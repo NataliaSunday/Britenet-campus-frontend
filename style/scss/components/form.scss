@@ -1,7 +1,7 @@
 .form{
     @include display-flex-col-spaceBetween;
     @include padding;
-     @include boxShadow;
+    @include boxShadow;
     width: min-content;
 
     &__label{
@@ -16,6 +16,74 @@
     }
     &__input:focus{
         outline: none;
-   
+    }
+    &--login{
+        align-self: center;
+    }
+    &__desc{
+        margin-bottom: 1rem;
+    }
+    
+}
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.list{
+    list-style: none;
+    @include padding;
+    border: 1px solid white;
+    background-color: $color-third;
+    color: white;
+}
+.account{
+ 
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+ 
+    grid-template-areas:
+    'heading . .'
+    'data order order';
+    justify-content: stretch; 
+    grid-gap: 1rem;
+ 
+
+    &__heading{
+        grid-area: 'heading';
+    }
+    &__data{
+        grid-area: data;
+        
+
+    }
+    &__orders{
+        grid-area: order;
+    
+
+    }
+    .list{
+        @include display-flex-col-spaceBetween;
+    }
+}
+.table{
+    background-color: $color-primary;
+    text-align: center;
+    height: min-content;
+
+    &__head{
+        font-weight: 300;
+    }
+    &__col{
+        background-color: $color-second;
+        padding: .5rem;
+    }
+    &__headCol{
+        text-align: left;
+        padding: .5rem;
+        font-weight: 400;
     }
 }
