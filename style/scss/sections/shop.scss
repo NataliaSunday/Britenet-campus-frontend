@@ -145,5 +145,5 @@ main{
     top: 0;
     left: 0;
     z-index: 10;
-    
+    @include display-flex-col-center;
 }

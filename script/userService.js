@@ -1,4 +1,4 @@
-const getUserDataReq= async() => {
+const getUserOrderDataReq= async() => {
     try{
         const response = await fetch(`http://localhost:8081/api/v1/order/userOrder`, {
             'headers': {
@@ -6,12 +6,26 @@ const getUserDataReq= async() => {
             }
         });
         const json = await response.json();
+        console.log(json);
         return Promise.resolve(json);
     }catch (e) {
         return Promise.reject(e);
     }
 }
-
+const getUserDataReq= async ( ) => {
+    try{
+        const response = await fetch(`http://localhost:8081/api/v1/user/getUser`, {
+            'headers': {
+                'Authorization' : localStorage.getItem('token')
+            }
+        });
+        const json = await response.json();
+       
+        return Promise.resolve(json);
+    }catch (e) {
+        return Promise.reject(e);
+    }
+}
 const getUserOrderByIdReq = async( orderId ) => {
     try{
         const response = await fetch(`http://localhost:8081/api/v1/orderProduct/userOrder/${orderId}`, {
@@ -27,41 +41,66 @@ const getUserOrderByIdReq = async( orderId ) => {
     }
 }
 
-function getUserData(){
-getUserDataReq()
-    .then(userData => {
-
-            const accountData = document.querySelector("#accountData");
-            accountData.innerHTML += 
-            `
-                <li class="listItem">Name: ${userData[0].user.name} </li>
-                <li class="listItem">Surname: ${userData[0].user.surname}</li>
-                <li class="listItem">Nickname: ${userData[0].user.nickname}</li>
-                <li class="listItem">Country: ${userData[0].user.country}</li>
-                <li class="listItem">City: ${userData[0].user.city}</li>
-                <li class="listItem">Home number: ${userData[0].user.homeNumber}</li>
-                <li class="listItem">Zip Code: ${userData[0].user.zipCode}</li>
-                <li class="listItem">Phone number: ${userData[0].user.phoneNumber}</li>
-                <li class="listItem">E-mail: ${userData[0].user.eMail}</li>
-            `
-        
-        const userOrders = document.querySelector("#userOrders");
-        userData.forEach( userOrder => {
+function getUserOrderData(){
+getUserOrderDataReq()
+    .then(userOrder => {
+        if(userOrder.length > 0){
+            const userOrders = document.querySelector("#userOrders");
+            userOrder.forEach( userOrder => {
+               
+                userOrders.innerHTML += 
+                `
+                <tr onclick="seeOrder(${userOrder.idOrder})">
+                   <td class="table__col">${userOrder.idOrder}</td>
+                    <td class="table__col">${userOrder.orderDate}</td>
+                    <td class="table__col">${userOrder.orderStatus}</td>
+                    <td class="table__col">${userOrder.totalPrice}$</td>
+                </tr>
+                `
+            }  
+        )}else{
+            const userOrders = document.querySelector("#userOrders");
             userOrders.innerHTML += 
-            `
-            <tr onclick="seeOrder(${userOrder.idOrder})">
-               <td class="table__col">${userOrder.idOrder}</td>
-                <td class="table__col">${userOrder.orderDate}</td>
-                <td class="table__col">${userOrder.orderStatus}</td>
-                <td class="table__col">${userOrder.totalPrice}$</td>
-            </tr>
-            `
-        })
-           
+                `
+                <tr>
+                    <td colspan="4" class="table__col">You dont have any orders</td>
+                    <td class="table__col"></td>
+                    <td class="table__col"></td>
+                    <td class="table__col"></td>
+                </tr>
+                `
+            
+        }
+    
     }).catch(e => {
+           
         console.log(e);
+       
     })
 }
+
+function getUserData(){
+    getUserDataReq()
+    .then(userData => {
+        const accountData = document.querySelector("#accountData");
+        accountData.innerHTML += 
+        `
+            <li class="listItem">Name: ${userData.name} </li>
+            <li class="listItem">Surname: ${userData.surname}</li>
+            <li class="listItem">Nickname: ${userData.nickname}</li>
+            <li class="listItem">Country: ${userData.country}</li>
+            <li class="listItem">City: ${userData.city}</li>
+            <li class="listItem">Home number: ${userData.homeNumber}</li>
+            <li class="listItem">Zip Code: ${userData.zipCode}</li>
+            <li class="listItem">Phone number: ${userData.phoneNumber}</li>
+            <li class="listItem">E-mail: ${userData.eMail}</li>
+        `
+    }    
+       
+    )
+}
+
+
 
 function seeOrder(orderId){
     getUserOrderByIdReq(orderId)
@@ -106,6 +145,44 @@ function seeOrder(orderId){
     }).catch(e => {
         console.log(e);
     })
+}
+
+
+
+const registerUser= async(e) => {
+    e.preventDefault();
+    let data = new FormData();
+
+    data.append("name",  document.getElementById("register_name").value);
+    data.append("surname",  document.getElementById("register_surname").value);
+    data.append("password",  document.getElementById("register_user_password").value);
+    data.append("nickname",  document.getElementById("register_nickname").value);
+    data.append("country", document.getElementById("register_country").value);
+    data.append("city", document.getElementById("register_city").value)
+    data.append("homeNumber", document.getElementById("register_homeNumber").value)
+    data.append("zipCode", document.getElementById("register_zipCode").value)
+    data.append("phoneNumber", document.getElementById("register_phoneNumber").value);
+    data.append("eMail", document.getElementById("register_eMail").value)
+  
+
+   let dataJSON = Object.fromEntries(data.entries()); 
+    try{
+        const response = await fetch(`http://localhost:8081/api/v1/auth/register`, {
+            headers: {
+                'Content-type' : 'application/json',
+            },
+            method : 'POST',
+            body : JSON.stringify(dataJSON)
+        });
+        if(response.status === 200){
+            window.location.href = "/login.html";
+            alert("User added!")
+        return Promise.resolve();}
+    }catch (e) {
+        
+        alert("Error");
+        return Promise.reject(e);
+    }
 }
 
 

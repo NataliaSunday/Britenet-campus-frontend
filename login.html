@@ -85,6 +85,7 @@
                     </tr>
                 </thead>
                 <tbody class="table__body" id="userOrders">
+                   
                 </tbody>
               </table>
         </article>
@@ -115,38 +116,38 @@
         </article>
     </section>
 <section class="register displayNone" id="register">
-<h2>Put your date and click submit</h2>
-    <form class="cart__form form" onsubmit="addUser(event)">
 
-        <label for="name" class="form__label">Name:</label>
-        <input type="text" class="form__input" id="name">
+    <form class="cart__form formDouble" onsubmit=" registerUser(event)">
+        <h2 class="formDouble__heading">Put your date and click submit</h2>
+        <label for="register_name" class="form__label">Name:</label>
+        <input type="text" class="form__input" id="register_name">
 
-        <label for="surname" class="form__label">Surname:</label>
-        <input type="text" class="form__input" id="surname">
+        <label for="register_surname" class="form__label">Surname:</label>
+        <input type="text" class="form__input" id="register_surname">
 
-        <label for="user_password" class="form__label">Password:</label>
-        <input type="password" class="form__input" id="user_password">
+        <label for="register_user_password" class="form__label">Password:</label>
+        <input type="password" class="form__input" id="register_user_password">
 
-        <label for="country" class="form__label">Country:</label>
-        <input type="text" class="form__input" id="country">
+        <label for="register_nickname" class="form__label">Nickname:</label>
+        <input type="text" class="form__input" id="register_nickname">
 
-        <label for="country" class="form__label">Country:</label>
-        <input type="text" class="form__input" id="country">
+        <label for="register_country" class="form__label">Country:</label>
+        <input type="text" class="form__input" id="register_country">
 
-        <label for="city" class="form__label">City:</label>
-        <input type="text" class="form__input" id="city">
+        <label for="register_city" class="form__label">City:</label>
+        <input type="text" class="form__input" id="register_city">
 
-        <label for="homeNumber" class="form__label">Home number:</label>
-        <input type="text" class="form__input" id="homeNumber">
+        <label for="register_homeNumber" class="form__label">Home number:</label>
+        <input type="text" class="form__input" id="register_homeNumber">
 
-        <label for="zipCode" class="form__label">zip code:</label>
-        <input type="text" class="form__input" id="zipCode">
+        <label for="register_zipCode" class="form__label">zip code:</label>
+        <input type="text" class="form__input" id="register_zipCode">
         
-        <label for="phoneNumber" class="form__label">Phone number:</label>
-        <input type="text" class="form__input" id="phoneNumber">
+        <label for="register_phoneNumber" class="form__label">Phone number:</label>
+        <input type="text" class="form__input" id="register_phoneNumber">
 
-        <label for="eMail" class="form__label">E-mail:</label>
-        <input type="text" class="form__input" id="eMail">
+        <label for="register_eMail" class="form__label">E-mail:</label>
+        <input type="text" class="form__input" id="register_eMail">
 
         <input type="submit" class="btn btn--submit" >
       </form>

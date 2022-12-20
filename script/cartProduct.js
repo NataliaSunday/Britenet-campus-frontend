@@ -2,6 +2,7 @@ window.addEventListener('load', function () {
     if(localStorage.getItem('token')){
         getCartContent();
         getUserData();
+        getUserOrderData();
         let cart = document.getElementById('main--cart');
         cart.classList.remove('displayNone');
        
