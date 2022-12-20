@@ -27,3 +27,13 @@
     box-shadow: 2.5px 2.5px 7px #0000005a;
     border-radius: 2.5px;
 }
+
+@mixin grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+    'heading . .'
+    'content content2 content2';
+    justify-content: stretch; 
+    grid-gap: 1rem;
+}

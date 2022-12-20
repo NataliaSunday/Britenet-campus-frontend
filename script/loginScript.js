@@ -48,6 +48,8 @@ if(!localStorage.getItem('token') ){
     let account = document.querySelector("#account");
     account.classList.add("displayNone");
 
+
+
     
     
 }else{

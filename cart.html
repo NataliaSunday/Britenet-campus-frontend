@@ -57,12 +57,12 @@
 </header>
 
 <main class="cart" id="main--cart">
-   <h3>Your cart:</h3>
-   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum dolor eius atque enim aliquid labore deleniti maxime aliquam non, totam a officiis sapiente asperiores veniam. Quidem libero hic dignissimos omnis.</p>
-
-
-  <div class="cartBox">
-    <table class="table">
+   
+   <div class="cart__heading">
+        <h2>Your cart:</h2>
+        <p>Check your chart and order.</p> 
+   </div>
+    <table class="cart__table table">
         <thead class="table__head">
             <tr>
                 <th class="table__headCol"></th>
@@ -74,7 +74,7 @@
         <tbody class="table__body" id="cart">
         </tbody>
       </table>
-      <form class="form" onsubmit="addOrder(event)">
+      <form class="cart__form form" onsubmit="addOrder(event)">
         <label for="country" class="form__label">Country:</label>
         <input type="text" class="form__input" id="country">
 
@@ -95,8 +95,7 @@
 
         <input type="submit" class="btn btn--submit" >
       </form>
-  </div>
-  
+
 </main>
 
 <footer class="footer">

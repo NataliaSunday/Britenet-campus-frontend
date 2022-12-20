@@ -1,57 +1,21 @@
 .cart{
-    padding: 3rem;
+   @include grid;
+   @include padding;
     color: $color-primary-dark;
     
-   
-
-    &__table{
-        background-color: $color-primary;
-        text-align: center;
-        height: min-content;
-
-        &__head{
-            
-            
-            font-weight: 300;
-        }
-
-        &__body{
-
-            &__svg{
-                opacity: 1;
-                width: 1rem;
-                fill: red;
-                cursor: pointer;
-            }
-        }
-
-        &__col{
-         
-            background-color: $color-second;
-            padding: .5rem;
-
-            &--svg{
-                background-color: transparent;
-            
-            }
-           
-           
-        }
-        
-        
-        &__headCol{
-            text-align: left;
-            padding: .5rem;
-            font-weight: 400;
-        }
-
+    &__heading{
+        grid-area: heading;
+     
     }
-}
-.cartBox{
- 
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-around;
-   
+    &__table{
+        grid-area: content;
+     
+      
+    }
+    &__form{
+        grid-area: content2;
+        justify-self: end;
+        
+      
+    }
 }

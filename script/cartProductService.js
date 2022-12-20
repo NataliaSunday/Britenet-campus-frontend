@@ -5,8 +5,7 @@ const getCartContentOfUser = async() => {
                 'Authorization' : localStorage.getItem('token')
             }
         });
-        const json = await response.json();
-        console.log(json)
+        const json = await response.json();   
         return Promise.resolve(json);
     }catch (e) {
         return Promise.reject(e);

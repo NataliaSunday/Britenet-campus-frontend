@@ -141,4 +141,5 @@ const addToCart = async(prodPrice) => {
          const prodId = params.get('productId');
          getProdById(prodId);
      }
+   
      

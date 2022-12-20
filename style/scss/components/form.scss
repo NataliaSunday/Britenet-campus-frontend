@@ -31,43 +31,37 @@
     justify-content: center;
 }
 
-
-.list{
-    list-style: none;
-    @include padding;
-    border: 1px solid white;
-    background-color: $color-third;
-    color: white;
-}
 .account{
  
+    color: $color-primary-dark;
     padding: 2rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
- 
-    grid-template-areas:
-    'heading . .'
-    'data order order';
-    justify-content: stretch; 
-    grid-gap: 1rem;
+   @include grid;
  
 
     &__heading{
         grid-area: 'heading';
     }
     &__data{
-        grid-area: data;
+        grid-area: content;
+       
         
 
     }
     &__orders{
-        grid-area: order;
+        grid-area: content2;
     
 
     }
     .list{
         @include display-flex-col-spaceBetween;
     }
+}
+.list{
+    list-style: none;
+    @include padding;
+    border: 1px solid $color-primary;
+    background-color: $color-third;
+    color: $color-primary;
 }
 .table{
     background-color: $color-primary;
@@ -80,10 +74,26 @@
     &__col{
         background-color: $color-second;
         padding: .5rem;
+    
     }
     &__headCol{
         text-align: left;
         padding: .5rem;
         font-weight: 400;
     }
+    &--svg{
+        opacity: 1;
+        width: 1rem;
+        fill: red;
+        cursor: pointer;
+        background-color: transparent;
+    }
+}
+
+.userOrder{
+    background-color: $color-third;
+    color: $color-primary-dark;
+    align-self: flex-start;
+  margin-top: 3rem;
+   
 }

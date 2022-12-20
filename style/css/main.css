@@ -6,10 +6,6 @@
   box-sizing: border-box;
 }
 
-body {
-  color: #0A210F;
-}
-
 html {
   font-family: "Jost", sans-serif;
   font-weight: 300;
@@ -274,41 +270,23 @@ html {
 }
 
 .cart {
-  padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "heading . ." "content content2 content2";
+  justify-content: stretch;
+  grid-gap: 1rem;
+  padding: 2rem;
   color: #0A210F;
 }
+.cart__heading {
+  grid-area: heading;
+}
 .cart__table {
-  background-color: #F4F0F0;
-  text-align: center;
-  height: min-content;
+  grid-area: content;
 }
-.cart__table__head {
-  font-weight: 300;
-}
-.cart__table__body__svg {
-  opacity: 1;
-  width: 1rem;
-  fill: red;
-  cursor: pointer;
-}
-.cart__table__col {
-  background-color: #FFFFFF;
-  padding: 0.5rem;
-}
-.cart__table__col--svg {
-  background-color: transparent;
-}
-.cart__table__headCol {
-  text-align: left;
-  padding: 0.5rem;
-  font-weight: 400;
-}
-
-.cartBox {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-around;
+.cart__form {
+  grid-area: content2;
+  justify-self: end;
 }
 
 .headerShop {
@@ -469,19 +447,12 @@ main {
   justify-content: center;
 }
 
-.list {
-  list-style: none;
-  padding: 2rem;
-  border: 1px solid white;
-  background-color: #5CF16B;
-  color: white;
-}
-
 .account {
+  color: #0A210F;
   padding: 2rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-areas: "heading . ." "data order order";
+  grid-template-areas: "heading . ." "content content2 content2";
   justify-content: stretch;
   grid-gap: 1rem;
 }
@@ -489,15 +460,23 @@ main {
   grid-area: "heading";
 }
 .account__data {
-  grid-area: data;
+  grid-area: content;
 }
 .account__orders {
-  grid-area: order;
+  grid-area: content2;
 }
 .account .list {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.list {
+  list-style: none;
+  padding: 2rem;
+  border: 1px solid #F4F0F0;
+  background-color: #5CF16B;
+  color: #F4F0F0;
 }
 
 .table {
@@ -516,6 +495,20 @@ main {
   text-align: left;
   padding: 0.5rem;
   font-weight: 400;
+}
+.table--svg {
+  opacity: 1;
+  width: 1rem;
+  fill: red;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.userOrder {
+  background-color: #5CF16B;
+  color: #0A210F;
+  align-self: flex-start;
+  margin-top: 3rem;
 }
 
 .displayNone {
