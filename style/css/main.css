@@ -420,6 +420,16 @@ main {
   min-height: 100vh;
 }
 
+.register {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(244, 237, 237, 0.8274509804);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
 .form {
   display: flex;
   flex-direction: column;

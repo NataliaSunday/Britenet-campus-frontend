@@ -107,3 +107,16 @@ function seeOrder(orderId){
         console.log(e);
     })
 }
+
+
+function register(e){
+    e.preventDefault();
+    let register = document.querySelector("#register");
+    register.classList.remove("displayNone");
+    
+
+}
+
+function addUser(e){
+    e.preventDefault();
+}
