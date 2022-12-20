@@ -2,7 +2,7 @@
     @include display-flex-col-spaceBetween;
     @include padding;
     @include boxShadow;
-    width: min-content;
+    width: auto;
 
     &__label{
         color: $color-primary-dark;
@@ -74,11 +74,11 @@
     justify-content: center;
 }
 
-.account, .orderHistory{
+.account, .orderHistory, .cart{
  
     color: $color-primary-dark;
-    padding: 2rem;
-   @include grid;
+    @include padding;
+    @include grid;
  
 
     &__heading{
@@ -86,29 +86,29 @@
     }
     &__data{
         grid-area: content;
-
-
     }
     &__orders{
         grid-area: content2;
-    
-
     }
-    .list{
-        @include display-flex-col-spaceBetween;
-    }
+   
 }
+
+
 .list{
-    list-style: none;
+    @include display-flex-col-spaceBetween;
+    @include boxShadow;
     @include padding;
-    border: 1px solid $color-primary;
+    list-style: none;
     background-color: $color-third;
     color: $color-primary;
+   
 }
 .table{
+    @include boxShadow;
     background-color: $color-primary;
     text-align: center;
     height: min-content;
+    width: 100%;
 
     &__head{
         font-weight: 300;

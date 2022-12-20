@@ -34,6 +34,9 @@ html {
 .btn--submit {
   border: none;
 }
+.btn--back {
+  align-self: flex-start;
+}
 
 .btn:hover {
   background-color: #5CF16B;
@@ -277,26 +280,6 @@ html {
   width: 15rem;
 }
 
-.cart {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-areas: "heading . ." "content content2 content2";
-  justify-content: stretch;
-  grid-gap: 1rem;
-  padding: 2rem;
-  color: #0A210F;
-}
-.cart__heading {
-  grid-area: heading;
-}
-.cart__table {
-  grid-area: content;
-}
-.cart__form {
-  grid-area: content2;
-  justify-self: end;
-}
-
 .headerShop {
   background-color: #FFFFFF;
 }
@@ -404,6 +387,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 0.5rem;
 }
 .productPage__img {
   width: 15rem;
@@ -417,6 +401,7 @@ html {
 }
 
 main {
+  width: 100vw;
   min-height: 100vh;
 }
 
@@ -438,10 +423,11 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 0.5rem;
   padding: 2rem;
   box-shadow: 2.5px 2.5px 7px rgba(0, 0, 0, 0.3529411765);
   border-radius: 2.5px;
-  width: min-content;
+  width: auto;
 }
 .form__label {
   color: #0A210F;
@@ -512,42 +498,46 @@ main {
   justify-content: center;
 }
 
-.account, .orderHistory {
+.account, .orderHistory, .cart {
   color: #0A210F;
   padding: 2rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: "heading . ." "content content2 content2";
   justify-content: stretch;
+  align-items: flex-start;
   grid-gap: 1rem;
 }
-.account__heading, .orderHistory__heading {
+.account__heading, .orderHistory__heading, .cart__heading {
   grid-area: "heading";
 }
-.account__data, .orderHistory__data {
+.account__data, .orderHistory__data, .cart__data {
   grid-area: content;
 }
-.account__orders, .orderHistory__orders {
+.account__orders, .orderHistory__orders, .cart__orders {
   grid-area: content2;
-}
-.account .list, .orderHistory .list {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .list {
-  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  box-shadow: 2.5px 2.5px 7px rgba(0, 0, 0, 0.3529411765);
+  border-radius: 2.5px;
   padding: 2rem;
-  border: 1px solid #F4F0F0;
+  list-style: none;
   background-color: #5CF16B;
   color: #F4F0F0;
 }
 
 .table {
+  box-shadow: 2.5px 2.5px 7px rgba(0, 0, 0, 0.3529411765);
+  border-radius: 2.5px;
   background-color: #F4F0F0;
   text-align: center;
   height: min-content;
+  width: 100%;
 }
 .table__head {
   font-weight: 300;

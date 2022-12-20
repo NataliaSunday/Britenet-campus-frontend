@@ -125,6 +125,7 @@ function seeOrder(orderId){
             <li class="listItem">Phone Number: ${userOrder[0].order.phoneNumber}</li>
             <li class="listItem">Total price: ${userOrder[0].order.totalPrice}</li>
             <li class="listItem">Is paid: ${userOrder[0].order.isPaid}</li>
+            <a href="login.html" class="btn btn--back">Back</a>
         `;
     
         const orderInfo = document.querySelector("#orderInfo");

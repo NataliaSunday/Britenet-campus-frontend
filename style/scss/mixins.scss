@@ -8,13 +8,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
 }
 
 @mixin display-flex-col-spaceBetween{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap:.5rem;
     
 }
 @mixin display-flex-col{
@@ -44,6 +44,7 @@
     'heading . .'
     'content content2 content2';
     justify-content: stretch; 
+    align-items: flex-start;
     grid-gap: 1rem;
 }
 

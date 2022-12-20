@@ -54,7 +54,6 @@
 
 <main class="main" id="main">
 
-
     <form class="form form--login" onsubmit="return performLogin()" id="loginForm">
         <p class="form__desc">Hi! Log in to make a order and see your data.</p>
         <label for="nickname" class="form__label">Nickname:</label>
@@ -68,13 +67,13 @@
 
 
     <section class="account" id="account">
-        <h2 class="account__heading">Welcom on your account.</h2>
+        <h2 class="account__heading">Here is your account.</h2>
         <article class="account__data">
-            <p>Here is your data</p>
-            <ul class="account list account__list" id="accountData"></ul>
+            <p>Your data:</p>
+            <ul class="account list" id="accountData"></ul>
         </article>
         <article class="account__orders">
-            <p>Here is your order history</p>
+            <p>Here is your order data</p>
             <table class="table">
                 <thead class="table__head">
                     <tr>
@@ -85,7 +84,6 @@
                     </tr>
                 </thead>
                 <tbody class="table__body" id="userOrders">
-                   
                 </tbody>
               </table>
         </article>
@@ -94,14 +92,16 @@
 
     
      <section class="orderHistory displayNone" id="orderHistory">
-            <h2 class="orderHistory__heading">Here is your order</h2>
+            <h2 class="orderHistory__heading">Your order</h2>
         <article id="userOrderData" class="orderHistory__data">
-            <p>Here is your order data</p>
-            <ul class="order list order__list" id="orderData"></ul>   
-            <a href="login.html" class="btn">Back</a>
+            <p>Order data:</p>
+            <ul class="order list" id="orderData">
+               
+            </ul>   
+           
         </article>
         <article class="userOrder orderHistory__orders" id="userOrder">
-            <p>Here is your order</p>
+            <p>Order content</p>
             <table class="table">
                 <thead class="table__head">
                     <tr>
@@ -115,43 +115,35 @@
             </table>
         </article>
     </section>
-<section class="register displayNone" id="register">
+
+
+    <section class="register displayNone" id="register">
 
     <form class="cart__form formDouble" onsubmit=" registerUser(event)">
         <h2 class="formDouble__heading">Put your date and click submit</h2>
         <label for="register_name" class="form__label">Name:</label>
         <input type="text" class="form__input" id="register_name">
-
         <label for="register_surname" class="form__label">Surname:</label>
         <input type="text" class="form__input" id="register_surname">
-
         <label for="register_user_password" class="form__label">Password:</label>
         <input type="password" class="form__input" id="register_user_password">
-
         <label for="register_nickname" class="form__label">Nickname:</label>
         <input type="text" class="form__input" id="register_nickname">
-
         <label for="register_country" class="form__label">Country:</label>
         <input type="text" class="form__input" id="register_country">
-
         <label for="register_city" class="form__label">City:</label>
         <input type="text" class="form__input" id="register_city">
-
         <label for="register_homeNumber" class="form__label">Home number:</label>
         <input type="text" class="form__input" id="register_homeNumber">
-
         <label for="register_zipCode" class="form__label">zip code:</label>
         <input type="text" class="form__input" id="register_zipCode">
-        
         <label for="register_phoneNumber" class="form__label">Phone number:</label>
         <input type="text" class="form__input" id="register_phoneNumber">
-
         <label for="register_eMail" class="form__label">E-mail:</label>
         <input type="text" class="form__input" id="register_eMail">
-
-        <input type="submit" class="btn btn--submit" >
+        
       </form>
-
+      <input type="submit" class="btn btn--submit btn--back" >
 </section>
       
 </main>
