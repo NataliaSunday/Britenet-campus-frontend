@@ -71,15 +71,34 @@ function seeOrder(orderId){
    
     getUserOrderByIdReq(orderId)
     .then(userOrder => {
-        const orderInfo = document.querySelector("#orderInfo");
+
         
-        const userOrderSec= document.querySelector("#userOrder");
-        userOrderSec.classList.remove("displayNone");
-       
         const account = document.querySelector("#account");
         account.classList.add("displayNone");
 
-   
+        const userOrderSec= document.querySelector("#orderHistory");
+        userOrderSec.classList.remove("displayNone");
+
+        const orderData = document.querySelector("#orderData");
+
+       
+      
+        orderData.innerHTML += 
+        `
+            <li class="listItem">Order Id: ${userOrder[0].idOrder} </li>
+            <li class="listItem">Order date: ${userOrder[0].order.orderDate}</li>
+            <li class="listItem">Status: ${userOrder[0].order.orderStatus}</li>
+          
+            <li class="listItem">Addres: ${userOrder[0].order.city} ${userOrder[0].order.homeNumber} ${userOrder[0].order.zipCode} ${userOrder[0].order.country}</li>
+            <li class="listItem">E-mail: ${userOrder[0].order.eMail}</li>
+            <li class="listItem">Phone Number: ${userOrder[0].order.phoneNumber}</li>
+            <li class="listItem">Total price: ${userOrder[0].order.totalPrice}</li>
+            <li class="listItem">Is paid: ${userOrder[0].order.isPaid}</li>
+        `;
+     
+
+        const orderInfo = document.querySelector("#orderInfo");
+     
         userOrder.forEach( userOrder => {
             console.log(userOrder.product.name);
             orderInfo.innerHTML += 

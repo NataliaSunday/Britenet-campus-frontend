@@ -447,7 +447,7 @@ main {
   justify-content: center;
 }
 
-.account {
+.account, .orderHistory {
   color: #0A210F;
   padding: 2rem;
   display: grid;
@@ -456,16 +456,16 @@ main {
   justify-content: stretch;
   grid-gap: 1rem;
 }
-.account__heading {
+.account__heading, .orderHistory__heading {
   grid-area: "heading";
 }
-.account__data {
+.account__data, .orderHistory__data {
   grid-area: content;
 }
-.account__orders {
+.account__orders, .orderHistory__orders {
   grid-area: content2;
 }
-.account .list {
+.account .list, .orderHistory .list {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -502,13 +502,6 @@ main {
   fill: red;
   cursor: pointer;
   background-color: transparent;
-}
-
-.userOrder {
-  background-color: #5CF16B;
-  color: #0A210F;
-  align-self: flex-start;
-  margin-top: 3rem;
 }
 
 .displayNone {

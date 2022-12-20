@@ -31,7 +31,7 @@
     justify-content: center;
 }
 
-.account{
+.account, .orderHistory{
  
     color: $color-primary-dark;
     padding: 2rem;
@@ -43,8 +43,7 @@
     }
     &__data{
         grid-area: content;
-       
-        
+
 
     }
     &__orders{
@@ -90,10 +89,3 @@
     }
 }
 
-.userOrder{
-    background-color: $color-third;
-    color: $color-primary-dark;
-    align-self: flex-start;
-  margin-top: 3rem;
-   
-}
