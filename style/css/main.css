@@ -43,6 +43,14 @@ html {
   text-decoration: none;
   color: #F4F0F0;
 }
+.link--register {
+  color: #E1F02D;
+  font-weight: 500;
+  transition: all 0.5 ease;
+}
+.link--register:hover {
+  font-size: 1rem;
+}
 
 .displayNone {
   display: none;
@@ -439,6 +447,10 @@ main {
 }
 .form__desc {
   margin-bottom: 1rem;
+  color: #0A210F;
+}
+.form__desc--smaller {
+  font-size: 0.75rem;
 }
 
 .main {

@@ -23,7 +23,7 @@ html{
     box-shadow: 2.5px 2.5px 7px #0000005a;
     align-self: center;
     margin: 2rem 0;
-
+   
     &--submit{
         border: none;
     }
@@ -37,4 +37,13 @@ html{
 .link{
     text-decoration: none;
     color: $color-primary;
+
+    &--register{
+        color: $color-fourth;
+        font-weight: 500;
+        transition: all .5 ease;
+    }
+    &--register:hover{
+       font-size: 1rem;
+    }
 }

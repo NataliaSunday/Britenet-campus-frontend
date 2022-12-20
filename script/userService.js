@@ -28,7 +28,6 @@ const getUserOrderByIdReq = async( orderId ) => {
 }
 
 function getUserData(){
-
 getUserDataReq()
     .then(userData => {
 
@@ -58,7 +57,6 @@ getUserDataReq()
             </tr>
             `
         })
-
            
     }).catch(e => {
         console.log(e);
@@ -66,12 +64,8 @@ getUserDataReq()
 }
 
 function seeOrder(orderId){
-
-    alert(orderId);
-   
     getUserOrderByIdReq(orderId)
     .then(userOrder => {
-
         
         const account = document.querySelector("#account");
         account.classList.add("displayNone");
@@ -81,8 +75,6 @@ function seeOrder(orderId){
 
         const orderData = document.querySelector("#orderData");
 
-       
-      
         orderData.innerHTML += 
         `
             <li class="listItem">Order Id: ${userOrder[0].idOrder} </li>
@@ -95,8 +87,7 @@ function seeOrder(orderId){
             <li class="listItem">Total price: ${userOrder[0].order.totalPrice}</li>
             <li class="listItem">Is paid: ${userOrder[0].order.isPaid}</li>
         `;
-     
-
+    
         const orderInfo = document.querySelector("#orderInfo");
      
         userOrder.forEach( userOrder => {
@@ -104,22 +95,15 @@ function seeOrder(orderId){
             orderInfo.innerHTML += 
             `
           <tr>
-          <td class="table__col"></td>
-          <td class="table__col">${userOrder.product.name}</td>
-          <td class="table__col">${userOrder.howMany}</td>
-          <td class="table__col">${userOrder.product.price}$</td>
-       
+            <td class="table__col"></td>
+            <td class="table__col">${userOrder.product.name}</td>
+            <td class="table__col">${userOrder.howMany}</td>
+            <td class="table__col">${userOrder.product.price}$</td>
           </tr>
             `
-        }
-           
+        }   
         )
-        
-       
     }).catch(e => {
         console.log(e);
     })
-
-
-    
 }
