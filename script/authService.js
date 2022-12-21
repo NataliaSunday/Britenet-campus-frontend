@@ -16,10 +16,12 @@ const login = async (nickname, password) => {
             const json =await response.json();
             const token = json.token;
             localStorage.setItem('token', token);
+            getUserCart();
             return Promise.resolve();
     
         }else{
             localStorage.removeItem('token');
+         
             return Promise.reject();
         }
       
@@ -42,6 +44,7 @@ const getUserCart = async() =>{
             const json =await response.json();
             console.log(json)
             const cartId = json.idCart;
+           
             localStorage.setItem('cartId', cartId);
             return Promise.resolve(json);
     }catch (e) {

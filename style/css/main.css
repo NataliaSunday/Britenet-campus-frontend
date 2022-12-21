@@ -381,13 +381,17 @@ html {
   padding: 0.5rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  padding: 2rem;
+  box-shadow: 2.5px 2.5px 7px rgba(0, 0, 0, 0.3529411765);
+  border-radius: 2.5px;
 }
-.productPage__info {
+.productPage__info__buy {
+  height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  width: 70%;
 }
 .productPage__img {
   width: 15rem;
@@ -539,6 +543,9 @@ main {
   height: min-content;
   width: 100%;
 }
+.table__row:hover .table--svg {
+  opacity: 1;
+}
 .table__head {
   font-weight: 300;
 }
@@ -552,13 +559,55 @@ main {
   font-weight: 400;
 }
 .table--svg {
-  opacity: 1;
+  opacity: 0;
   width: 1rem;
   fill: red;
   cursor: pointer;
   background-color: transparent;
+  transition: all 0.5s ease;
 }
 
+.announcement {
+  width: 100%;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  z-index: 999;
+  background-color: #0A210F;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.5s ease-in;
+  animation: announcementAimation;
+  animation-duration: 8000ms;
+}
+.announcement--error {
+  background-color: red;
+}
+.announcement--good {
+  background-color: #5CF16B;
+}
+
+.announcement:hover {
+  transform: translate(-50%, 0%);
+  background-color: aqua;
+}
+
+@keyframes announcementAimation {
+  0% {
+    transform: translate(-50%, -70%);
+  }
+  25% {
+    transform: translate(-50%, 0%);
+  }
+  75% {
+    transform: translate(-50%, 0%);
+  }
+  100% {
+    transform: translate(-50%, -100%);
+  }
+}
 .displayNone {
   display: none;
 }

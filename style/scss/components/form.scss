@@ -110,6 +110,11 @@
     height: min-content;
     width: 100%;
 
+    &__row:hover{
+        .table--svg{
+            opacity: 1;
+            }
+    }
     &__head{
         font-weight: 300;
     }
@@ -124,11 +129,55 @@
         font-weight: 400;
     }
     &--svg{
-        opacity: 1;
+        opacity: 0;
         width: 1rem;
         fill: red;
         cursor: pointer;
         background-color: transparent;
+        transition: all .5s ease;
     }
+   
 }
 
+.announcement{
+    width: 100%;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    z-index: 999;
+    background-color: $color-primary-dark;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform .5s ease-in;
+    animation: announcementAimation;
+    animation-duration: 8000ms ;
+
+    &--error{
+        background-color: red;
+    }
+    &--good{
+        background-color: $color-third;
+    }
+
+}
+.announcement:hover{
+    transform: translate(-50% ,0%);
+    background-color: aqua;
+}
+
+@keyframes announcementAimation {
+    0%{
+        transform: translate(-50%, -70%);
+    }
+    25%{
+        transform: translate(-50% ,0%);
+    }
+    75%{
+        transform: translate(-50% ,0%);
+    }
+    100%{
+        transform: translate(-50%, -100%);
+    }
+}

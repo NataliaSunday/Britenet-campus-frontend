@@ -111,14 +111,22 @@
 }
 .productPage{
     grid-column: 1/4;
+
     gap: 1rem;
     height: min-content;
     color: $color-primary-dark;
     padding: .5rem;
-    @include display-flex-row-spaceBetween;
+    @include  display-flex-row;
+    @include padding;
+    @include boxShadow;
 
     &__info{
-        @include display-flex-col-spaceBetween;
+     
+        &__buy{
+            height: 100%;
+            @include display-flex-row-center;
+            width: 70%;
+        }
     }
     &__img{
         width:15rem;

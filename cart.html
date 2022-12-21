@@ -16,6 +16,7 @@
     <script src="script/cartProductService.js" defer></script>
     <script src="script/orderService.js" defer></script>
     <script src="script/userService.js" defer></script>
+    <script src="script/errorService.js" defer></script>
 
 </head>
 <body>
@@ -76,22 +77,22 @@
       </table>
       <form class="cart__data form" onsubmit="addOrder(event)">
         <label for="country" class="form__label">Country:</label>
-        <input type="text" class="form__input" id="country">
+        <input type="text" class="form__input" placeholder="Poland" id="country" pattern="[A-Za-z]*" required>
 
         <label for="city" class="form__label">City:</label>
-        <input type="text" class="form__input" id="city">
+        <input type="text" class="form__input" placeholder="Lublin" id="city" pattern="[A-Za-z]*" required>
 
         <label for="homeNumber" class="form__label">Home number:</label>
-        <input type="text" class="form__input" id="homeNumber">
+        <input type="text" class="form__input" placeholder="27F" id="homeNumber" maxlength="5" required>
 
         <label for="zipCode" class="form__label">zip code:</label>
-        <input type="text" class="form__input" id="zipCode">
+        <input type="text" class="form__input" placeholder="20-123" id="zipCode" maxlength="6" pattern="[0-9]{2}-[0-9]{3}" required>
         
         <label for="phoneNumber" class="form__label">Phone number:</label>
-        <input type="text" class="form__input" id="phoneNumber">
+        <input type="text" class="form__input" placeholder="000000000" id="phoneNumber" maxlength="9" pattern="[0-9]{9}" required>
 
         <label for="eMail" class="form__label">E-mail:</label>
-        <input type="text" class="form__input" id="eMail">
+        <input type="email" class="form__input" placeholder="your@email.com" id="eMail" required>
 
         <input type="submit" class="btn btn--submit" >
       </form>

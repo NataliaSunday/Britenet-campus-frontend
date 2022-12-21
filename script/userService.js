@@ -177,11 +177,14 @@ const registerUser= async(e) => {
         });
         if(response.status === 200){
             window.location.href = "/login.html";
-            alert("User added!")
+            errorService("User added" ,true);
+           
         return Promise.resolve();}
+        else{
+            errorService("User can't be added. Check data." ,false);
+            return Promise.reject();
+        }
     }catch (e) {
-        
-        alert("Error");
         return Promise.reject(e);
     }
 }
@@ -195,6 +198,3 @@ function register(e){
 
 }
 
-function addUser(e){
-    e.preventDefault();
-}

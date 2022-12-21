@@ -4,14 +4,11 @@ const performLogin = () => {
 
     login(nickname, password)
     .then( _ => {
-        alert('Logged In!');
-        
         window.location.href = "login.html";
-       getUserCart();
-        document.dispatchEvent(new CustomEvent('login_event'));
     })
     .catch( e => {
-        alert('Error!');
+        
+        errorService("User doesn't exist or bad data", false);
         console.log(e);
     });
     return false;

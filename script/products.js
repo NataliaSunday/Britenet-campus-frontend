@@ -73,15 +73,18 @@ function getProdById(prodId) {
             <article class="productPage">
             <img src="${product.imagePath}" alt="bean" class="productPage__img">
             <div class="productPage__info">
-                    <p class="productBox__info__heading">${product.name}</p>
-                    <p class="productBox__info__desc">${product.desc}</p>
-                <div class="productPage__info__buy">
-                    <label for="howMany" class="form__label">How many</label>
-                    <input type="number" class="form__input" id="howMany" value="1"> 
-                    <p class="productBox__info__bou__price">${product.price}$</p> 
-                    
-                    <a href="#" class="btn" role="button" onclick="addToCart(${product.price})">Buy</a>
-                </div>
+                   <div>
+                        <p class="productBox__info__heading">${product.name}</p>
+                        <p class="productBox__info__desc">${product.desc}</p>
+                   </div>
+            
+                    <div class="productPage__info__buy">
+                   
+                        <label for="howMany" class="form__label"> <p class="productBox__info__bou__price">${product.price}$</p> </label>
+                        <input type="number" class="form__input" id="howMany" value="1"> 
+                        <a href="#" class="btn btn--productBuy" role="button" onclick="addToCart(${product.price})">Buy</a>
+                    </div> 
+                  
             </div>
         </article>
             `
@@ -117,13 +120,13 @@ const addToCart = async(prodPrice) => {
                          body : JSON.stringify(dataJSON)
                      });
                      const json = await response.json();
-                     alert("Thank you for your order");
+                     errorService("Product added to cart", true);
                      return Promise.resolve(json);
                  }catch (e) {
                      return Promise.reject(e);
                  }
          }else{
-            alert("You need login");
+            errorService("You need to login", false);
          }
          
      }
