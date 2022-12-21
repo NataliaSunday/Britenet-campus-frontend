@@ -58,3 +58,27 @@
     grid-gap: 1rem;
 }
 
+@mixin alerts{
+    width: 100%;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    z-index: 999;
+    background-color: $color-primary;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform .5s ease-in;
+    animation: announcementAimation;
+    animation-duration: 8000ms ;
+}
+
+@mixin fixed{
+    width: 100vw;
+    height: 100vh;
+    background-color: #f4ededd3;
+    position: fixed;
+    top: 0;
+    left: 0;
+}

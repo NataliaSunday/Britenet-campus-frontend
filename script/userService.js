@@ -176,8 +176,13 @@ const registerUser= async(e) => {
             body : JSON.stringify(dataJSON)
         });
         if(response.status === 200){
-            window.location.href = "/login.html";
-            errorService("User added" ,true);
+            const url = window.location.search;
+            const params = new URLSearchParams(url);
+            errorService("User added." ,true);
+            setTimeout(()=>{
+                params.delete('addUser');
+                window.location.search = params;
+            },4000);
            
         return Promise.resolve();}
         else{
@@ -190,11 +195,11 @@ const registerUser= async(e) => {
 }
 
 
-function register(e){
+function registerStart(e){
     e.preventDefault();
-    let register = document.querySelector("#register");
-    register.classList.remove("displayNone");
-    
-
+    const url = window.location.search;
+    const params = new URLSearchParams(url);
+    params.set("addUser", "a");
+    window.location.search = params;
 }
 

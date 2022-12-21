@@ -41,7 +41,12 @@ const addOrder = async(e) => {
                 console.log(json);
                 addProductOrder();
                 errorService("Thank you for your order", true);
-                return Promise.resolve(json);
+                setTimeout(()=>{
+                   
+                    window.location.href="/shop.html"
+                    return Promise.resolve(json);
+                },4000);
+               
             }else{
                 errorService("Order can't be done", false)
             }

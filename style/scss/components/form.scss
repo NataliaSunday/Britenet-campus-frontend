@@ -134,25 +134,26 @@
         fill: red;
         cursor: pointer;
         background-color: transparent;
-        transition: all .5s ease;
+        transition: all .25s ease;
+     
     }
    
 }
+.delPermission{
+   @include fixed;
+    &__content{
+        width: 100%;
+        height: 100%;
+        @include display-flex-col-center;
+    }
+   &__title{
+        margin-bottom: 1rem;
+   }
+}
 
 .announcement{
-    width: 100%;
-    padding: 1rem;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -70%);
-    z-index: 999;
-    background-color: $color-primary-dark;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform .5s ease-in;
-    animation: announcementAimation;
-    animation-duration: 8000ms ;
+   
+    @include alerts;
 
     &--error{
         background-color: red;
@@ -164,7 +165,6 @@
 }
 .announcement:hover{
     transform: translate(-50% ,0%);
-    background-color: aqua;
 }
 
 @keyframes announcementAimation {

@@ -144,5 +144,53 @@ const addToCart = async(prodPrice) => {
          const prodId = params.get('productId');
          getProdById(prodId);
      }
+
    
-     
+     if(params.has('addUser')){ //register window display
+
+        let main = document.getElementById('mainUser');
+
+        main.innerHTML += `
+        
+        <section class="register" id="register">
+
+        <form class="cart__form formDouble" onsubmit="registerUser(event)">
+            <h2 class="formDouble__heading">Put your date and click submit</h2>
+            <label for="register_name" class="form__label">Name:</label>
+            <input type="text" class="form__input" placeholder="Jhonn" id="register_name"  required pattern="[A-Za-z]*">
+    
+            <label for="register_surname" class="form__label">Surname:</label>
+            <input type="text" class="form__input" placeholder="Doe" id="register_surname" required pattern="[A-Za-z]*">
+    
+            <label for="register_user_password" class="form__label">Password:</label>
+            <input type="password" class="form__input" placeholder="passsword" id="register_user_password" required>
+    
+            <label for="register_nickname" class="form__label">Nickname:</label>
+            <input type="text" class="form__input" placeholder="Nickname" id="register_nickname" required >
+    
+            <label for="register_country" class="form__label">Country:</label>
+            <input type="text" class="form__input" placeholder="Poland" id="register_country" required pattern="[A-Za-z]*">
+    
+            <label for="register_city" class="form__label">City:</label>
+            <input type="text" class="form__input" placeholder="Lublin" id="register_city" required pattern="[A-Za-z]*">
+    
+            <label for="register_homeNumber" class="form__label">Home number:</label>
+            <input type="text" class="form__input" placeholder="79F" id="register_homeNumber" maxlength="5" required>
+    
+            <label for="register_zipCode" class="form__label">zip code:</label>
+            <input type="text" class="form__input" placeholder="20-123" id="register_zipCode" maxlength="6" required pattern="[0-9]{2}-[0-9]{3}">
+    
+            <label for="register_phoneNumber" class="form__label">Phone number:</label>
+            <input type="text" class="form__input" placeholder="000000000" id="register_phoneNumber" required maxlength="9" pattern="[0-9]{9}">
+    
+            <label for="register_eMail" class="form__label">E-mail:</label>
+            <input type="email" class="form__input" placeholder="your@email.com" id="register_eMail" required >
+    
+            <input type="submit" class="btn btn--submit btn--back" >
+          </form>
+         
+    </section>
+    
+    `
+     }
+    

@@ -150,12 +150,7 @@ main{
 
 
 .register{
-    width: 100vw;
-    height: 100vh;
-    background-color: #f4ededd3;
-    position: fixed;
-    top: 0;
-    left: 0;
+    @include fixed;
     z-index: 10;
     @include display-flex-col-center;
 }
