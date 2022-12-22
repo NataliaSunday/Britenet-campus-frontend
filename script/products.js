@@ -145,7 +145,9 @@ const addToCart = async(prodPrice) => {
          getProdById(prodId);
      }
 
-   
+   if(params.has('productwhere')){
+        getProductWhere();
+    }
      if(params.has('addUser')){ //register window display
 
         let main = document.getElementById('mainUser');
@@ -194,3 +196,72 @@ const addToCart = async(prodPrice) => {
     `
      }
     
+     function searchBar(){
+        let input = document.getElementById("serachInput");
+        if(!input.classList.contains("displayNone")){
+
+            const url = window.location.search;
+            const params = new URLSearchParams(url);
+           
+            params.set('productWhere', "name");
+           
+            window.location.search = params;
+           
+            window.location.href="/shop.html?"+params;
+            
+
+       
+        }else{
+            input.classList.remove("displayNone");
+        }
+        
+       
+       
+     }
+
+
+
+
+     function getProductWhere() {  
+        getProductWhereReq()
+        .then( products => {
+           
+            console.log(products);
+            const productsElement = document.querySelector('#products');
+            products.forEach(product => {
+                console.log(product)
+                productsElement.innerHTML += `
+                <article class="productBox">
+                <img src="${product.imagePath}" alt="bean" class="productBox__img">
+                <div class="productBox__info">
+                        <p class="productBox__info__heading">${product.name}</p>
+                        <p class="productBox__info__desc">${product.desc}</p>
+                    <div class="productBox__info__buy">
+                        <p class="productBox__info__bou__price">${product.price}$</p> 
+                        <a href="#" class="btn" role="button" onclick=seeProduct(${product.id})>Buy</a>
+                    </div>
+                </div>
+            </article>
+                `
+            
+            })
+        }).catch(e => {
+            console.log(e);
+        })
+    } 
+    
+const getProductWhereReq= async () => {
+   let inputContent =  document.getElementById("serachInput").value;
+   console.log(inputContent);
+    try{
+        const response = await fetch(`http://localhost:8081/api/v1/product/productWhere=${inputContent}`, {
+            
+            method : 'GET',
+           
+        });
+        const json = await response.json();
+        return Promise.resolve(json);
+    }catch (e) {
+        return Promise.reject(e);
+    }
+}
