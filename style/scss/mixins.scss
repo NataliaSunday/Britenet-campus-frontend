@@ -9,6 +9,11 @@
     flex-direction: row;
     justify-content: space-between;
 }
+@mixin display-flex-col-spaceAround{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 
 @mixin display-flex-col-spaceBetween{
     display: flex;

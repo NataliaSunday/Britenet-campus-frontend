@@ -48,20 +48,19 @@
 
 
 .search{
+    width: 100%;
     grid-column: 1/8;
-    
     @include display-flex-row;
-  
     height: min-content;
     align-items: center;
    
-  &__p{
+    &__p{
     color: $color-primary-dark;
-
-  }
+    }
 
     &__input{
-
+    
+    width: 15rem;
     animation: searchBarOpen;
     animation-duration: .75s;
     animation-timing-function: ease-in-out;  
@@ -72,7 +71,7 @@
 @keyframes searchBarOpen {
 
     0%{
-      
+    
         width: 1rem;
     }
   
@@ -94,87 +93,70 @@
 }
 
 .products{
-    margin: 0 auto;
-   width: 80%;
+    width: 100%;
     padding: 2rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 22rem;
-    justify-content: center; 
-    grid-gap: 1rem;
-
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-rows: 25rem;
+    gap: 2rem;
 }
-.productBox{
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-content: center;
+.productBox{
+    padding: 1rem;
+    @include boxShadow;
+    @include display-flex-col-center;
     color: $color-primary-dark;
-    padding: .5rem;
 
     &__img{
-        width: 15rem;
-        object-fit: fill;    
+       height: 10rem;
+       width: 100%;
+        object-fit: cover;    
     }
    &__info{
+    margin-top: .5rem;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    @include display-flex-col-spaceAround;
     
-
-         &__desc{
-
-            &__heading{
-                font-weight: 400;
-                margin: .5rem 0;
-            }
-            &__desc{
-                font-size: 0.75rem;
-            } 
+        &__heading{
+            font-weight: 400;
+            font-size: 1.2rem;
+    
         }
-            &__buy{
-                height: 1.5rem;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-               
-            
-            }
+        &__buy{
+            margin-top: 1.5rem;
+            height: 1.5rem;
+            @include display-flex-row-spaceBetween;
         }
-
+    }
 }
 .productPage{
     grid-column: 1/4;
-
     gap: 1rem;
     height: min-content;
     color: $color-primary-dark;
-    padding: .5rem;
+
     @include  display-flex-row;
     @include padding;
     @include boxShadow;
 
     &__info{
-     
-        &__buy{
-            height: 100%;
+     @include display-flex-col-spaceBetween;
+     width: 100%;
+        
+     &__buy{
+            height: min-content;
             @include display-flex-row-center;
-            width: 70%;
+            justify-content: flex-start;
+        }
+        &__buy > * {
+            margin: 0 1rem;
         }
     }
     &__img{
-        width:15rem;
-        height: min-content;
+        width:20rem;
+        height: 100%;
+        object-fit: cover;
     }
-
-}
-
-.productBox:nth-child(3n + 2){
-    padding: 0.5rem 1.5rem;
-    border-left: 1px solid rgba(179, 172, 172, 0.311);
-    border-right: 1px solid rgba(179, 172, 172, 0.311);
 }
 
 
@@ -183,4 +165,37 @@
     @include fixed;
     z-index: 10;
     @include display-flex-col-center;
+}
+
+
+.main{
+    @include padding;
+    @include display-flex-col-start;
+    min-height: 100vh;
+}
+
+.account, .orderHistory, .cart{
+ 
+    color: $color-primary-dark;
+    @include padding;
+    @include grid;
+ 
+
+    &__heading{
+        grid-area: 'heading';
+    }
+    &__data{
+        grid-area: content;
+    }
+    &__orders{
+        grid-area: content2;
+    }
+
+}
+
+.cart__img{
+    width: 100%;
+    height: 4rem;
+    object-fit: cover;
+    align-self: stretch;
 }

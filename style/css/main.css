@@ -328,6 +328,7 @@ html {
 }
 
 .search {
+  width: 100%;
   grid-column: 1/8;
   display: flex;
   flex-direction: row;
@@ -338,6 +339,7 @@ html {
   color: #0A210F;
 }
 .search__input {
+  width: 15rem;
   animation: searchBarOpen;
   animation-duration: 0.75s;
   animation-timing-function: ease-in-out;
@@ -362,46 +364,46 @@ html {
 }
 
 .products {
-  margin: 0 auto;
-  width: 80%;
+  width: 100%;
   padding: 2rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 22rem;
-  justify-content: center;
-  grid-gap: 1rem;
+  grid-auto-rows: 25rem;
+  gap: 2rem;
 }
 
 .productBox {
+  padding: 1rem;
+  box-shadow: 2.5px 2.5px 7px rgba(0, 0, 0, 0.3529411765);
+  border-radius: 2.5px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-content: center;
+  align-items: center;
+  justify-content: center;
   color: #0A210F;
-  padding: 0.5rem;
 }
 .productBox__img {
-  width: 15rem;
-  object-fit: fill;
+  height: 10rem;
+  width: 100%;
+  object-fit: cover;
 }
 .productBox__info {
+  margin-top: 0.5rem;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-.productBox__info__desc__heading {
+.productBox__info__heading {
   font-weight: 400;
-  margin: 0.5rem 0;
-}
-.productBox__info__desc__desc {
-  font-size: 0.75rem;
+  font-size: 1.2rem;
 }
 .productBox__info__buy {
+  margin-top: 1.5rem;
   height: 1.5rem;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
 }
 
 .productPage {
@@ -409,30 +411,34 @@ html {
   gap: 1rem;
   height: min-content;
   color: #0A210F;
-  padding: 0.5rem;
   display: flex;
   flex-direction: row;
   padding: 2rem;
   box-shadow: 2.5px 2.5px 7px rgba(0, 0, 0, 0.3529411765);
   border-radius: 2.5px;
 }
+.productPage__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+}
 .productPage__info__buy {
-  height: 100%;
+  height: min-content;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 70%;
+  justify-content: flex-start;
+}
+.productPage__info__buy > * {
+  margin: 0 1rem;
 }
 .productPage__img {
-  width: 15rem;
-  height: min-content;
-}
-
-.productBox:nth-child(3n+2) {
-  padding: 0.5rem 1.5rem;
-  border-left: 1px solid rgba(179, 172, 172, 0.311);
-  border-right: 1px solid rgba(179, 172, 172, 0.311);
+  width: 20rem;
+  height: 100%;
+  object-fit: cover;
 }
 
 .register {
@@ -447,6 +453,42 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
+
+.account, .orderHistory, .cart {
+  color: #0A210F;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "heading . ." "content content2 content2";
+  justify-content: stretch;
+  align-items: flex-start;
+  grid-gap: 1rem;
+}
+.account__heading, .orderHistory__heading, .cart__heading {
+  grid-area: "heading";
+}
+.account__data, .orderHistory__data, .cart__data {
+  grid-area: content;
+}
+.account__orders, .orderHistory__orders, .cart__orders {
+  grid-area: content2;
+}
+
+.cart__img {
+  width: 100%;
+  height: 4rem;
+  object-fit: cover;
+  align-self: stretch;
 }
 
 .form {
@@ -528,42 +570,6 @@ html {
   margin-bottom: 2rem;
   font-size: 1.25rem;
   cursor: pointer;
-}
-
-.main {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
-}
-
-.account, .orderHistory, .cart {
-  color: #0A210F;
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-areas: "heading . ." "content content2 content2";
-  justify-content: stretch;
-  align-items: flex-start;
-  grid-gap: 1rem;
-}
-.account__heading, .orderHistory__heading, .cart__heading {
-  grid-area: "heading";
-}
-.account__data, .orderHistory__data, .cart__data {
-  grid-area: content;
-}
-.account__orders, .orderHistory__orders, .cart__orders {
-  grid-area: content2;
-}
-
-.cart__img {
-  width: 100%;
-  height: 4rem;
-  object-fit: cover;
-  align-self: stretch;
 }
 
 .list {

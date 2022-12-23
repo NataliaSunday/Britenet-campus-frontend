@@ -77,37 +77,6 @@
     }
     
 }
-.main{
-    @include padding;
-    @include display-flex-col-start;
-    min-height: 100vh;
-}
-
-.account, .orderHistory, .cart{
- 
-    color: $color-primary-dark;
-    @include padding;
-    @include grid;
- 
-
-    &__heading{
-        grid-area: 'heading';
-    }
-    &__data{
-        grid-area: content;
-    }
-    &__orders{
-        grid-area: content2;
-    }
-
-}
-
-.cart__img{
-    width: 100%;
-    height: 4rem;
-    object-fit: cover;
-    align-self: stretch;
-}
 .list{
     @include display-flex-col-spaceBetween;
     @include boxShadow;
