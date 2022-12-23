@@ -517,9 +517,17 @@ html {
   font-size: 0.75rem;
 }
 .formDouble__heading {
-  grid-column: 1/5;
+  grid-column: 1/4;
   color: #5CF16B;
   margin-bottom: 2rem;
+}
+.formDouble__close {
+  grid-column: 4/5;
+  text-align: right;
+  color: #0A210F;
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  cursor: pointer;
 }
 
 .main {

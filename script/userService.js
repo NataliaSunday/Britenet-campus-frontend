@@ -196,3 +196,10 @@ function registerStart(e){
     window.location.search = params;
 }
 
+const registerClose = document.getElementById("registerClose");
+registerClose.addEventListener("click", () => {
+    const url = window.location.search;
+    const params = new URLSearchParams(url);
+    params.delete("addUser");
+    window.location.search = params;
+})
