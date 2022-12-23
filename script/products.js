@@ -103,12 +103,12 @@ const addToCart = async(prodPrice) => {
        
         let prodId = params.get('productId');
         let cartId = localStorage.getItem('cartId');
-   
+        let totalPrice = prodPrice * document.getElementById("howMany").value;
         let data = new FormData();
         data.append("idProduct", prodId);
         data.append("idCart",  cartId);
         data.append("howMany", document.getElementById("howMany").value);
-        data.append("price", prodPrice)
+        data.append("price", totalPrice)
             
 
             let dataJSON = Object.fromEntries(data.entries()); 

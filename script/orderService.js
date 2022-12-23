@@ -1,7 +1,9 @@
 const addOrder = async(e) => {
    e.preventDefault();
 
-  
+    let totalPrice = document.getElementById("totalPrice").textContent;
+    totalPrice = parseFloat(totalPrice);
+
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
     let mm = String(today.getMonth() + 1).padStart(2, '0'); 
@@ -21,7 +23,7 @@ const addOrder = async(e) => {
    data.append("eMail", document.getElementById("eMail").value);
    data.append("orderStatus", "new");
    data.append("isPaid", true);
-   data.append("totalPrice", 100.00);
+   data.append("totalPrice", totalPrice);
    data.append("discount", 0.0)
 
    let dataJSON = Object.fromEntries(data.entries()); 
