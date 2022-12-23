@@ -68,14 +68,10 @@ getUserOrderDataReq()
                     <td class="table__col"></td>
                     <td class="table__col"></td>
                 </tr>
-                `
-            
-        }
-    
-    }).catch(e => {
-           
-        console.log(e);
-       
+             `     
+        }    
+    }).catch(e => {        
+     console.log(e);      
     })
 }
 
@@ -99,8 +95,6 @@ function getUserData(){
        
     )
 }
-
-
 
 function seeOrder(orderId){
     getUserOrderByIdReq(orderId)
@@ -148,8 +142,6 @@ function seeOrder(orderId){
     })
 }
 
-
-
 const registerUser= async(e) => {
     e.preventDefault();
     let data = new FormData();
@@ -194,6 +186,7 @@ const registerUser= async(e) => {
     }
 }
 
+getUserCart(); 
 
 function registerStart(e){
     e.preventDefault();

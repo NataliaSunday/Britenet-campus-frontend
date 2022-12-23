@@ -39,6 +39,7 @@ function getProdByCat(cat) {
     .then( products => {
 
         const productsElement = document.querySelector('#products');
+        productsElement.innerHTML = "";
         products.forEach(product => {
             console.log(product)
             productsElement.innerHTML += `
@@ -67,6 +68,8 @@ function getProdById(prodId) {
     .then( product => {
 
         const productsElement = document.querySelector('#products');
+        const search = document.getElementById("searchBar");
+        search.classList.add("displayNone");
        productsElement.innerHTML = " ";
             console.log(product)
             productsElement.innerHTML += `
@@ -196,60 +199,6 @@ const addToCart = async(prodPrice) => {
     `
      }
     
-     function searchBar(){
-        let input = document.getElementById("serachInput");
-        if(!input.classList.contains("displayNone")){
-
-            const url = window.location.search;
-            const params = new URLSearchParams(url);
-           
-            params.set('productWhere', "name");
-           
-            window.location.search = params;
-           
-            window.location.href="/shop.html?"+params;
-            
-
-       
-        }else{
-            input.classList.remove("displayNone");
-        }
-        
-       
-       
-     }
-
-
-
-
-     function getProductWhere() {  
-        getProductWhereReq()
-        .then( products => {
-           
-            console.log(products);
-            const productsElement = document.querySelector('#products');
-            products.forEach(product => {
-                console.log(product)
-                productsElement.innerHTML += `
-                <article class="productBox">
-                <img src="${product.imagePath}" alt="bean" class="productBox__img">
-                <div class="productBox__info">
-                        <p class="productBox__info__heading">${product.name}</p>
-                        <p class="productBox__info__desc">${product.desc}</p>
-                    <div class="productBox__info__buy">
-                        <p class="productBox__info__bou__price">${product.price}$</p> 
-                        <a href="#" class="btn" role="button" onclick=seeProduct(${product.id})>Buy</a>
-                    </div>
-                </div>
-            </article>
-                `
-            
-            })
-        }).catch(e => {
-            console.log(e);
-        })
-    } 
-    
 const getProductWhereReq= async () => {
    let inputContent =  document.getElementById("serachInput").value;
    console.log(inputContent);
@@ -265,3 +214,61 @@ const getProductWhereReq= async () => {
         return Promise.reject(e);
     }
 }
+
+
+
+function searchBar(){
+    let input = document.getElementById("serachInput");
+    if(!input.classList.contains("displayNone")){
+        getProductWhere();
+   
+    }else{
+        input.classList.remove("displayNone");
+    }
+   
+    input.addEventListener("keypress", (event) => {
+        if(event.keyCode == 13){
+            getProductWhere();
+        }
+    })
+}
+ 
+ function getProductWhere() {  
+    getProductWhereReq()
+    .then( products => {
+       
+        console.log(products);
+        const productsElement = document.querySelector('#products');
+        const notFound = document.querySelector('#notFound');
+       
+        notFound.innerHTML = "";
+        productsElement.innerHTML = "";
+       if(products.length > 0){
+        products.forEach(product => {
+            console.log(product)
+            productsElement.innerHTML += `
+            <article class="productBox">
+            <img src="${product.imagePath}" alt="bean" class="productBox__img">
+            <div class="productBox__info">
+                    <p class="productBox__info__heading">${product.name}</p>
+                    <p class="productBox__info__desc">${product.desc}</p>
+                <div class="productBox__info__buy">
+                    <p class="productBox__info__bou__price">${product.price}$</p> 
+                    <a href="#" class="btn" role="button" onclick=seeProduct(${product.id})>Buy</a>
+                </div>
+            </div>
+        </article>
+            `
+            })    
+        }else{
+           
+            const notFound = document.querySelector('#notFound');
+            notFound.innerHTML = `
+                <p class="form__desc">Sorry product not found</p>
+                `
+            }
+        })
+    .catch(e => {
+        console.log(e);
+    })
+} 

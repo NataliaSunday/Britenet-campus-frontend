@@ -36,7 +36,7 @@ function auth(){
 function logout(){
     window.localStorage.clear();
     window.location.reload(true);
-    alert("You are logout")
+    errorService("You are log out", true);
 }
 if(!localStorage.getItem('token') ){
     let displays = document.querySelector('#logout');
@@ -44,10 +44,6 @@ if(!localStorage.getItem('token') ){
 
     let account = document.querySelector("#account");
     account.classList.add("displayNone");
-
-
-
-    
     
 }else{
     let displays = document.querySelector('#logout');

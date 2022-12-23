@@ -41,10 +41,10 @@ const getUserCart = async() =>{
                 'Authorization' : localStorage.getItem('token')
             }
         });
-            const json =await response.json();
+            const json = await response.json();
             console.log(json)
             const cartId = json.idCart;
-           
+           console.log("id_cart" + json);
             localStorage.setItem('cartId', cartId);
             return Promise.resolve(json);
     }catch (e) {

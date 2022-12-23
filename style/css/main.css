@@ -326,54 +326,29 @@ html {
   justify-content: space-between;
   gap: 1rem;
 }
-.navShop__svgBox__searchBar {
+
+.search {
+  grid-column: 1/8;
   display: flex;
   flex-direction: row;
+  height: min-content;
   align-items: center;
-  justify-content: space-between;
 }
-.navShop__svgBox__searchBar__input {
+.search__p {
+  color: #0A210F;
+}
+.search__input {
   animation: searchBarOpen;
   animation-duration: 0.75s;
   animation-timing-function: ease-in-out;
 }
-.navShop__svg {
-  display: block;
-}
 
 @keyframes searchBarOpen {
   0% {
-    width: 0;
-  }
-  10% {
-    width: 5%;
-  }
-  20% {
-    width: 20%;
-  }
-  30% {
-    width: 30%;
-  }
-  40% {
-    width: 40%;
-  }
-  50% {
-    width: 50%;
-  }
-  60% {
-    width: 60%;
-  }
-  70% {
-    width: 70%;
-  }
-  80% {
-    width: 80%;
-  }
-  90% {
-    width: 90%;
+    width: 1rem;
   }
   100% {
-    width: 90%;
+    width: 15rem;
   }
 }
 .navShop__svg {
@@ -458,11 +433,6 @@ html {
   padding: 0.5rem 1.5rem;
   border-left: 1px solid rgba(179, 172, 172, 0.311);
   border-right: 1px solid rgba(179, 172, 172, 0.311);
-}
-
-main {
-  width: 100vw;
-  min-height: 100vh;
 }
 
 .register {
@@ -553,9 +523,12 @@ main {
 }
 
 .main {
+  padding: 2rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  min-height: 100vh;
 }
 
 .account, .orderHistory, .cart {

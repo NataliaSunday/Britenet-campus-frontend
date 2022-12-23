@@ -41,67 +41,44 @@
     &__svgBox{
         margin-left: 2rem;
         @include display-flex-row-center;
-        gap: 1rem;
-       
-        &__searchBar{
-            @include display-flex-row-center;
-
-            &__input{
-              
-            animation: searchBarOpen;
-            animation-duration: .75s;
-            animation-timing-function: ease-in-out;
-             
-            }
-           
-          
-           
-        }
-       
+        gap: 1rem; 
     }
-
-   &__svg{
-    display: block;
-   }
-  
 }
+
+
+
+.search{
+    grid-column: 1/8;
+    
+    @include display-flex-row;
+  
+    height: min-content;
+    align-items: center;
+   
+  &__p{
+    color: $color-primary-dark;
+
+  }
+
+    &__input{
+
+    animation: searchBarOpen;
+    animation-duration: .75s;
+    animation-timing-function: ease-in-out;  
+    }
+}
+
+
 @keyframes searchBarOpen {
 
     0%{
       
-        width: 0;
+        width: 1rem;
     }
-    10%{
-     
-        width: 5%;
-    }
-    20%{
-        width: 20%;
-    }
-    30%{
-        width: 30%;
-    }
-    40%{
-        width: 40%;
-    }
-    50%{
-        width: 50%;
-    }
-    60%{
-        width: 60%;
-    }
-    70%{
-        width: 70%;
-    }
-    80%{
-        width: 80%;
-    }
-    90%{
-        width: 90%;
-    }
+  
     100%{
      
-        width: 90%;
+        width: 15rem;
     }
     
 }
@@ -199,13 +176,7 @@
     border-left: 1px solid rgba(179, 172, 172, 0.311);
     border-right: 1px solid rgba(179, 172, 172, 0.311);
 }
-main{
-    width: 100vw;
-    min-height: 100vh;
-   
-   
 
-}
 
 
 .register{

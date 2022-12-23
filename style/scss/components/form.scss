@@ -69,9 +69,9 @@
     
 }
 .main{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include padding;
+ @include display-flex-col-start;
+    min-height: 100vh;
 }
 
 .account, .orderHistory, .cart{
