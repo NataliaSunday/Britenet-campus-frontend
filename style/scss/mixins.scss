@@ -68,8 +68,33 @@
     justify-content: stretch; 
     align-items: flex-start;
     grid-gap: 1rem;
+  
 }
-
+@mixin grid-3{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-rows: 25rem;
+    gap: 2rem;
+   
+}
+@mixin grid3To1{
+    @media screen and (max-width:840px){
+     
+        grid-template-columns: repeat(2,1fr);
+        
+    }
+}
+@mixin grid-2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+@mixin flexSmall{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
 @mixin alerts{
     width: 100%;
     padding: 1rem;

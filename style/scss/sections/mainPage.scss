@@ -259,6 +259,7 @@
 .footer{
     @include display-flex-row-spaceBetween;
     @include padding;
+    
 
     background-color: $color-primary-dark;
     font-weight: 200;
@@ -276,4 +277,12 @@
         width: 15rem;
        
     }
+}
+
+@media screen and (max-width: 840px){
+   .footer{
+    @include grid-2;
+   
+   }  
+  
 }
