@@ -7,27 +7,47 @@ function seeProduct(productId){
     window.location.search = params;
 }
 
-
+getProd();
 function getProd() {
     getProducts()
     .then( products => {
-        const productsElement = document.querySelector('#products');
-        products.forEach(product => {
-            console.log(product)
-            productsElement.innerHTML += `
-            <article class="productBox">
-            <img src="${product.imagePath}" alt="bean" class="productBox__img">
-            <div class="productBox__info">
-                    <p class="productBox__info__heading">${product.name}</p>
-                    <p class="productBox__info__desc">${product.desc}</p>
-                <div class="productBox__info__buy">
-                    <p class="productBox__info__bou__price">${product.price}$</p>
-                    <a href="shop.html" class="btn" role="button">Buy</a>
+        console.log(products);
+       
+      for(let i = 0; i< products.length; i= i +4){
+        const productsElement = document.querySelector('#theBestProducts');
+
+        productsElement.innerHTML += `
+            <article class="mainProductBox">
+                <img src="${products[i].imagePath}" alt="bean" class="mainProductBox__img">
+                <div class="mainProductBox__info">
+                    <p class="mainProductBox__info__heading">${products[i].name}</p>
+                  
+                <div class="mainProductBox__info__buy">
+                    <p class="mainProductBox__info__buy__price">${products[i].price}$</p> 
+                    <a href="#" class="btn" role="button" onclick=seeProduct(${products[i].id})>Buy</a>
                 </div>
-            </div>
-        </article>
-            `
-        })
+                </div>
+            </article>
+        `
+      }
+
+      for(let z = 0; z< products.length; z= z+ 3){
+        const productsElement = document.querySelector('#newProducts');
+
+        productsElement.innerHTML += `
+        <article class="mainProductBox">
+                <img src="${products[z].imagePath}" alt="bean" class="mainProductBox__img">
+                <div class="mainProductBox__info">
+                    <p class="mainProductBox__info__heading">${products[z].name}</p>
+                  
+                <div class="mainProductBox__info__buy">
+                    <p class="mainProductBox__info__buy__price">${products[z].price}$</p> 
+                    <a href="#" class="btn" role="button" onclick=seeProduct(${products[z].id})>Buy</a>
+                </div>
+                </div>
+            </article>
+        `
+      }
     }).catch(e => {
         console.log(e);
     })
@@ -39,7 +59,11 @@ function getProdByCat(cat) {
     .then( products => {
 
         const productsElement = document.querySelector('#products');
+        const mainProducts = document.querySelector('#mainProducts');
+        mainProducts.innerHTML = ' ';
+     
         productsElement.innerHTML = "";
+      
         products.forEach(product => {
             console.log(product)
             productsElement.innerHTML += `
@@ -70,6 +94,8 @@ function getProdById(prodId) {
         const productsElement = document.querySelector('#products');
         const search = document.getElementById("searchBar");
         search.classList.add("displayNone");
+        const mainProducts = document.querySelector('#mainProducts');
+        mainProducts.innerHTML = ' ';
        productsElement.innerHTML = " ";
             console.log(product)
             productsElement.innerHTML += `
@@ -241,6 +267,8 @@ function searchBar(){
         console.log(products);
         const productsElement = document.querySelector('#products');
         const notFound = document.querySelector('#notFound');
+        const mainProducts = document.querySelector('#mainProducts');
+        mainProducts.innerHTML = ' ';
        
         notFound.innerHTML = "";
         productsElement.innerHTML = "";

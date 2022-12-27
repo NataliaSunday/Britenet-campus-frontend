@@ -199,3 +199,42 @@
     object-fit: cover;
     align-self: stretch;
 }
+
+.mainProducts{
+    @include padding;
+    @include display-flex-col;
+
+    &__heading{
+        color: $color-primary-dark;
+       padding: 2rem 0;
+    }
+   
+}
+
+.theBestProducts, .newProducts{
+    @include display-flex-row-spaceBetween;
+    gap: .5rem;
+}
+
+.mainProductBox{
+    color: $color-primary-dark;
+    @include boxShadow;
+    @include display-flex-col-center;
+    text-align: center;
+    width: 15rem;
+    height: 15rem;
+    background-color: transparent;
+
+    &__desc{
+
+        background-color: transparent;
+    }
+    &__img{
+        width: 100%;
+        height:100%;
+    }
+
+    &__info__buy__price{
+        margin-bottom: 1rem;
+    }
+}
