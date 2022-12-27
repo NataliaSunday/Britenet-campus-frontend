@@ -1,76 +1,55 @@
 .header{
+    position: relative;
     height: 100vh;
     min-height: 100vh;
-    background-image: url('/src/img/main/6-1920.jpg');
+    background-image: linear-gradient(to bottom, rgba(135, 152, 244, 0.52), rgba(127, 125, 125, 0.73)), url('/src/img/main/6-1920.jpg');
     background-size: cover ;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    
     @include padding;
     
 }
 .nav{
-    
     @include display-flex-row-spaceBetween;
-
     background-color: transparent;
     font-size: 1.5rem;
-   color: $color-primary;
-
+    color: $color-primary;
    
     &__list{
-       
         &__item{
         text-decoration: none;
         color: $color-primary;
+        font-weight: 400;
         margin: 0 1rem;
-
-       
+        transition: all .5s ease;
         }
-
         &__item:hover{
-            color: green;
+            color: $color-fifth;
+          
+
         }
-        
-       
     }
 }
 .welcome{
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include display-flex-col-center;
     text-align: center;
-
 }
 
 .benefits{
-    background-color: $color-third-dark;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    background-color: $color-third;
+    @include display-flex-row-center-wrap;
     padding:  2rem;
-    flex-wrap: wrap;
-   
-  
-    
 
     &__box{
    
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 1rem 1rem;
+        @include display-flex-col-center;
+        margin: 1rem;
     }
     &__box:nth-child(2){
-
         margin-bottom: 4rem;
     }
-   
- 
 }
 
 .benefit{
@@ -80,11 +59,9 @@
         height: 5rem;
         fill: $color-primary;
         justify-self: flex-start;
-      
     }
     &__image{
         font-size: 2.5rem;
-     
     }
     &__heading{
         margin: 1rem 0 .25rem;
@@ -93,31 +70,25 @@
     }
     &__desc{
         text-align: center;
-   
-    
     }
 }
+
 
 .aboutUs{
     background-color: $color-primary;
     color: $color-primary-dark;
-    display: flex;
-    flex-direction: column;
+    @include display-flex-col;
     padding: 2rem;
   
+  
     &__box{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        @include display-flex-row-center-wrap;
         gap: 0 1rem;
         height: 20rem;
         margin: 2rem 0;
      
         &__desc{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+          @include display-flex-col-center;
             text-align: center;
             height: 100%;
             width: 40%;
@@ -132,9 +103,40 @@
         transform: translate(-1rem,1rem);
         border: 3px solid $color-primary-dark;
         box-shadow: 5px 5px 5px #b0a7a7fc;
-        display: flex;
-        flex-direction: column;
+     
        
+        }
+    }
+}
+
+@media screen and (max-width:850px){
+    
+    .aboutUs{
+        &__box{
+        
+            @include display-flex-col-center;
+            height: auto;
+            position: relative;
+    
+            &__desc{
+                width: 100%;
+                height: 100%;
+                background-color:#1f363db0;
+                color: $color-primary;
+                z-index: 1;
+                transform: translate(-1rem);
+                line-height: 1.5rem;
+                font-size: .75rem;
+            }
+            &__img{
+                position: absolute;
+                top: 0;
+                left:0;
+                z-index: 0;
+                width: 100%;
+                object-fit: cover;
+                transform: translate(-1rem);
+            }
         }
     }
 }
@@ -158,14 +160,7 @@
         }
     }
 }
-.opinions{
-    &__article{
 
-    }
-    &__rating{
-  
-    }
-}
 .svg__start{
     width: 1rem;
     height: 1rem;
@@ -193,32 +188,50 @@
     &__opinions{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-      
-    
 
         &__article{
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+           @include display-flex-col-start;
         
             gap: 1rem;
             padding: 1.5rem;
 
-            &__conttent{
-                
-            }
+         
             &__rating{
-                display: flex;
-                flex-direction: row;
+              @include display-flex-row;
+              align-self: flex-start;
             }
             &__svg{
                 width: 1.5rem;
                 
             }
         }
+
+       
     }
 }
+@media screen and (max-width:800px) {
+    
+.opinionsSection{
+    &__header{
+        @include flexSmall;
+    }
+    &__opinions{
+       @include grid-2;
+    }
+}
+}
 
+@media screen and (max-width:680px) {
+    
+.opinionsSection{
+    &__header{
+        @include flexSmall;
+    }
+    &__opinions{
+        @include flexSmall;
+    }
+}
+}
 .login{
 
     &__form{

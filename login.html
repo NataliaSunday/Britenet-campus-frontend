@@ -37,13 +37,13 @@
 </header>
 
 <main class="main" id="mainUser">
-    <form class="form form--login" onsubmit="return performLogin()" id="loginForm">
+    <form class="form form--login" onsubmit="return performLogin()" id="loginForm" lang="en">
         <p class="form__desc">Hi! Log in to make a order and see your data.</p>
         <label for="nickname" class="form__label">Nickname:</label>
         <input type="text" id="nickname" class="form__input">
         <label for="password" class="form__label">Password:</label>
         <input type="password" id="password" class="form__input">
-       <input type="submit" class="btn btn--submit" >
+       <input type="submit" class="btn btn--submit" value="Log in" >
        <p class="form__desc--smaller form__desc">Don't have a account? <a href="#" class="link link--register" onclick="registerStart(event)">Sign in.</a></p>
     </form>
 

@@ -187,7 +187,7 @@ const addToCart = async(prodPrice) => {
         
         <section class="register" id="register">
 
-        <form class="cart__form formDouble" onsubmit="registerUser(event)">
+        <form class="cart__form formDouble" onsubmit="registerUser(event)" lang="en">
             <h2 class="formDouble__heading">Put your date and click submit</h2><div class="formDouble__close" id="registerClose">&#10005;</div>
             
             <label for="register_name" class="form__label">Name:</label>

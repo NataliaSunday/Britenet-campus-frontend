@@ -144,10 +144,10 @@
     @include alerts;
 
     &--error{
-        background-color: red;
+        background-color: $color-primary-dark;
     }
     &--good{
-        background-color: $color-third;
+        background-color: $color-fourth;
     }
 
 }

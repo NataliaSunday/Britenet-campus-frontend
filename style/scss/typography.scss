@@ -12,6 +12,9 @@ html{
    
     
 }
+.btn:hover{
+    background-color: $color-third;
+}
 
 .btn{
     background-color: $color-fourth;
@@ -30,12 +33,11 @@ html{
     &--back{
         align-self: flex-start; 
     }
- 
+    &--back:hover{
+        background-color: $color-primary-dark;
+    }
 }
 
-.btn:hover{
-    background-color: $color-third;
-}
 
 .link{
     text-decoration: none;
