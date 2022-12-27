@@ -213,7 +213,9 @@
 
 .theBestProducts, .newProducts{
     @include display-flex-row-spaceBetween;
-    gap: .5rem;
+    gap: 1rem;
+
+
 }
 
 .mainProductBox{
@@ -221,8 +223,8 @@
     @include boxShadow;
     @include display-flex-col-center;
     text-align: center;
-    width: 15rem;
-    height: 15rem;
+    width: 14rem;
+    height: 14rem;
     background-color: transparent;
 
     &__desc{

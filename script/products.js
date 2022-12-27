@@ -12,7 +12,8 @@ function getProd() {
     getProducts()
     .then( products => {
         console.log(products);
-       
+    
+   
       for(let i = 0; i< products.length; i= i +4){
         const productsElement = document.querySelector('#theBestProducts');
 
@@ -31,7 +32,8 @@ function getProd() {
         `
       }
 
-      for(let z = 0; z< products.length; z= z+ 3){
+      for(let z = products.length-1; z < products.length; z= z-4){
+       console.log( products.length);
         const productsElement = document.querySelector('#newProducts');
 
         productsElement.innerHTML += `
