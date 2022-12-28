@@ -261,45 +261,150 @@ function searchBar(){
         }
     })
 }
- 
+ function checkPage(page, pageCount){
+    let prevBtn = document.getElementById("prevPage");
+    let nextBtn = document.getElementById("nextPage");
+    let lastPage = pageCount - 1;
+
+    switch(page){
+        case 0: 
+            nextBtn.classList.remove("displayNone");
+            prevBtn.classList.add("displayNone");
+            break;
+        
+        case lastPage: 
+            nextBtn.classList.add("displayNone");
+            prevBtn.classList.remove("displayNone");
+            break;
+        default: 
+        nextBtn.classList.remove("displayNone");
+        prevBtn.classList.remove("displayNone");
+        break;
+    }
+
+ }
  function getProductWhere() {  
     getProductWhereReq()
     .then( products => {
-       
-        console.log(products);
+        let prevBtn = document.getElementById("prevPage");
+        let nextBtn = document.getElementById("nextPage");
+        nextBtn.classList.add("displayNone");
+        prevBtn.classList.add("displayNone");
+
         const productsElement = document.querySelector('#products');
         const notFound = document.querySelector('#notFound');
         const mainProducts = document.querySelector('#mainProducts');
-        mainProducts.innerHTML = ' ';
-       
+        
+        mainProducts.innerHTML = "";
         notFound.innerHTML = "";
         productsElement.innerHTML = "";
-       if(products.length > 0){
-        products.forEach(product => {
-            console.log(product)
-            productsElement.innerHTML += `
-            <article class="productBox">
-            <img src="${product.imagePath}" alt="bean" class="productBox__img">
-            <div class="productBox__info">
-                    <p class="productBox__info__heading">${product.name}</p>
-                    <p class="productBox__info__desc">${product.desc}</p>
-                <div class="productBox__info__buy">
-                    <p class="productBox__info__bou__price">${product.price}$</p> 
-                    <a href="#" class="btn" role="button" onclick=seeProduct(${product.id})>Buy</a>
-                </div>
-            </div>
-        </article>
-            `
-            })    
-        }else{
-           
-            const notFound = document.querySelector('#notFound');
-            notFound.innerHTML = `
-                <p class="form__desc">Sorry product not found</p>
-                `
+
+        let page = 1;
+        let pageLimit = 3;
+        let allRecords = products.length;
+        let pageCount = Math.ceil(allRecords/pageLimit);
+   
+        if(products.length > 0){
+            
+            if(products.length > pageLimit){
+                checkPage(page, pageCount);
             }
-        })
+            getPage(products, pageLimit,page);
+           
+            prevBtn.addEventListener("click", () => {
+                page--;
+                if(products.length > pageLimit){
+                    checkPage(page,pageCount);
+                }
+                prevPage(products, pageLimit,page);           
+            })
+           nextBtn.addEventListener("click", () => {
+            page++;
+            if(products.length > pageLimit){
+                checkPage(page,pageCount);
+            }
+            nextPage(products, pageLimit,page);
+           })     
+        }
+         else{
+            const notFound = document.querySelector('#notFound');
+            notFound.innerHTML = 
+            `
+                <p class="form__desc">Sorry product not found</p>
+            `
+        }
+    })
     .catch(e => {
         console.log(e);
     })
 } 
+
+function getPage(products, pageLimit){
+    const productsElement = document.querySelector('#products');
+    productsElement.innerHTML = "";
+    
+    for(let i = 0; i < pageLimit ; i++){
+        
+        productsElement.innerHTML += `
+        <article class="productBox">
+        <img src="${products[i].imagePath}" alt="bean" class="productBox__img">
+        <div class="productBox__info">
+                <p class="productBox__info__heading">${products[i].name}</p>
+                <p class="productBox__info__desc">${products[i].desc}</p>
+            <div class="productBox__info__buy">
+                <p class="productBox__info__bou__price">${products[i].price}$</p> 
+                <a href="#" class="btn" role="button" onclick=seeProduct(${products[i].id})>Buy</a>
+                </div>
+             </div>
+         </article>
+        `;  
+    }
+}
+
+function nextPage(products, pageLimit,page){
+    const productsElement = document.querySelector('#products');
+    productsElement.innerHTML = "";
+   
+    let pivot = page * pageLimit;
+    for(let i = pivot; i < pivot + pageLimit ; i++){
+        
+        productsElement.innerHTML += `
+        <article class="productBox">
+        <img src="${products[i].imagePath}" alt="bean" class="productBox__img">
+        <div class="productBox__info">
+                <p class="productBox__info__heading">${products[i].name}</p>
+                <p class="productBox__info__desc">${products[i].desc}</p>
+            <div class="productBox__info__buy">
+                <p class="productBox__info__bou__price">${products[i].price}$</p> 
+                <a href="#" class="btn" role="button" onclick=seeProduct(${products[i].id})>Buy</a>
+                </div>
+             </div>
+         </article>
+        `;
+        
+    } 
+   
+}
+function prevPage(products, pageLimit,page){
+    const productsElement = document.querySelector('#products');
+    productsElement.innerHTML = "";
+
+    let pivot = page * pageLimit;
+    for(let i = pivot; i < pivot + pageLimit ; i++){
+        
+        productsElement.innerHTML += `
+        <article class="productBox">
+        <img src="${products[i].imagePath}" alt="bean" class="productBox__img">
+        <div class="productBox__info">
+                <p class="productBox__info__heading">${products[i].name}</p>
+                <p class="productBox__info__desc">${products[i].desc}</p>
+            <div class="productBox__info__buy">
+                <p class="productBox__info__bou__price">${products[i].price}$</p> 
+                <a href="#" class="btn" role="button" onclick=seeProduct(${products[i].id})>Buy</a>
+                </div>
+             </div>
+         </article>
+        `;  
+    } 
+}
+
