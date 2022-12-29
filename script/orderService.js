@@ -10,8 +10,6 @@ const addOrder = async(e) => {
     let yyyy = today.getFullYear();
 
     today = yyyy +  '-' + mm + '-' + dd;
-    console.log(today)
-
    let data = new FormData();
 
    data.append("orderDate",  today);

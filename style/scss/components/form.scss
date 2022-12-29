@@ -200,3 +200,47 @@
         margin: .5rem 0; 
     }
 }
+.opinion:hover{
+    background-color: $color-primary;
+}
+
+.addOpinion{
+
+    &__heading{
+        margin-bottom: 1rem;
+    }
+
+    &__form{
+      
+    
+        overflow: hidden;
+        transition: height 1s;
+        height: auto;
+     
+        
+    }
+    &__star{
+       transition: fill .25s ease;
+       fill: $color-fifth;
+       cursor: pointer;
+       
+    }
+  
+   
+}
+#star:hover{
+    fill: red;
+}
+@keyframes  formAddOpinion{
+    from{
+        height: 0;
+		opacity: 0;
+        animation: formAddOpinion 1s linear;
+    }
+    to{
+      
+        height: auto;
+		opacity: 1;
+       
+    }
+}

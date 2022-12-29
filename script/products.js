@@ -92,7 +92,15 @@ function getProdOpinion(prodId){
       
         const productsOpinions = document.querySelector('#opinions');
         productsOpinions.innerHTML = "";   
-
+        productsOpinions.innerHTML = 
+        `
+        <article id="addOpinion" class="opinions__addOpinion">
+            <div class="addOpinion__heading" id="addOpinionHeading">
+            <p class="form__desc">Do you want share your opinion?</p>
+            <a href="#" class="btn" onclick="addOpinion(event, ${prodId})">Add</a>
+            </div>
+       </article>
+        `
         opinions.forEach( opinion => {
             productsOpinions.innerHTML += 
             `
@@ -125,6 +133,113 @@ function getProdOpinion(prodId){
         console.log(e);
     })
 }
+
+function addOpinion(e,prodId){
+    e.preventDefault();
+  
+    const addOpinions = document.querySelector('#addOpinion');
+    let rating = 0;
+  
+
+   addOpinions.innerHTML+= `
+
+    <form class="form addOpinion__form displayNone" id="opinionForm" lang="en">
+            <label for="opinion__content" class="form__label">Opinion</label>
+            <textarea name="opinion__content"  id="opinion_content"  cols="30" rows="10"></textarea>
+
+            <label for="opinion__rating" class="form__label">Rating</label>
+            <div class="opinionRating" id="opinion__rating">
+                <svg version="1.1" class="opinionsSection__opinions__article__svg addOpinion__star" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 280.124 280.124" style="enable-background:new 0 0 280.124 280.124;" xml:space="preserve"><g><path d="M280.124,106.914l-92.059-6.598L140.057,4.441l-48.55,95.874L0,106.914l61.282,74.015l-17.519,94.754l96.294-43.614l96.294,43.606l-17.799-94.754C218.553,180.919,280.124,106.914,280.124,106.914z"/><polygon points="236.352,275.683 218.553,180.92 280.071,106.975 280.071,106.905 188.065,100.315 140.057,4.441 140.057,232.068 	"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                <svg version="1.1" class="opinionsSection__opinions__article__svg addOpinion__star" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 280.124 280.124" style="enable-background:new 0 0 280.124 280.124;" xml:space="preserve"><g><path d="M280.124,106.914l-92.059-6.598L140.057,4.441l-48.55,95.874L0,106.914l61.282,74.015l-17.519,94.754l96.294-43.614l96.294,43.606l-17.799-94.754C218.553,180.919,280.124,106.914,280.124,106.914z"/><polygon points="236.352,275.683 218.553,180.92 280.071,106.975 280.071,106.905 188.065,100.315 140.057,4.441 140.057,232.068 	"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                <svg version="1.1" class="opinionsSection__opinions__article__svg addOpinion__star" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 280.124 280.124" style="enable-background:new 0 0 280.124 280.124;" xml:space="preserve"><g><path d="M280.124,106.914l-92.059-6.598L140.057,4.441l-48.55,95.874L0,106.914l61.282,74.015l-17.519,94.754l96.294-43.614l96.294,43.606l-17.799-94.754C218.553,180.919,280.124,106.914,280.124,106.914z"/><polygon points="236.352,275.683 218.553,180.92 280.071,106.975 280.071,106.905 188.065,100.315 140.057,4.441 140.057,232.068 	"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                <svg version="1.1" class="opinionsSection__opinions__article__svg addOpinion__star" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 280.124 280.124" style="enable-background:new 0 0 280.124 280.124;" xml:space="preserve"><g><path d="M280.124,106.914l-92.059-6.598L140.057,4.441l-48.55,95.874L0,106.914l61.282,74.015l-17.519,94.754l96.294-43.614l96.294,43.606l-17.799-94.754C218.553,180.919,280.124,106.914,280.124,106.914z"/><polygon points="236.352,275.683 218.553,180.92 280.071,106.975 280.071,106.905 188.065,100.315 140.057,4.441 140.057,232.068 	"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                <svg version="1.1" class="opinionsSection__opinions__article__svg addOpinion__star" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 280.124 280.124" style="enable-background:new 0 0 280.124 280.124;" xml:space="preserve"><g><path d="M280.124,106.914l-92.059-6.598L140.057,4.441l-48.55,95.874L0,106.914l61.282,74.015l-17.519,94.754l96.294-43.614l96.294,43.606l-17.799-94.754C218.553,180.919,280.124,106.914,280.124,106.914z"/><polygon points="236.352,275.683 218.553,180.92 280.071,106.975 280.071,106.905 188.065,100.315 140.057,4.441 140.057,232.068 	"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>           
+            </div>
+           <input type="submit" class="btn btn--submit" value="Send opinion" >
+           </form>
+         ` ; 
+         const form = document.getElementById("opinionForm");
+         form.classList.toggle("displayNone");
+        
+        
+         const stars = document.querySelectorAll(".addOpinion__star");
+       
+
+        stars.forEach( (star , index)=> {
+            star.addEventListener("click", () => {
+            stars.forEach( star  => {
+                star.style.fill ="#FFE880";
+            })
+                for(let i = 0; i <= index; i++){
+                    stars[i].style.fill = "#40798C"; 
+                    rating = index +1; 
+                }
+            }) 
+        });
+        form.onsubmit = function(e){
+            if(prodId != null && rating >0 ){
+                e.preventDefault();
+                insertOpinion( event, prodId, rating);
+                form.classList.add("displayNone");
+                stars.forEach( star  => {
+                    star.style.fill ="#FFE880";
+                })
+                
+            }else{
+                e.preventDefault();
+                errorService("Missing data.", false);
+            }
+        }
+}
+const insertOpinion = async(e, prodId,rating) => {
+    e.preventDefault();
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); 
+    let yyyy = today.getFullYear();
+
+    today = yyyy +  '-' + mm + '-' + dd;
+   
+
+    let data = new FormData();
+    data.append("idProduct", prodId);
+    data.append("opinionDate", today);
+    data.append("opinionContent", document.getElementById("opinion_content").value);
+    data.append("rating", rating);
+  
+
+    let dataJSON = Object.fromEntries(data.entries()); 
+
+    
+    try{
+        const response = await fetch("http://localhost:8081/api/v1/opinion", {
+            headers: {
+                'Content-type' : 'application/json',
+                'Authorization' : localStorage.getItem('token'),
+                
+            },
+            method : 'POST',
+            body : JSON.stringify(dataJSON)
+        });
+        if(response.status === 200){
+            const json = await response.json();
+            console.log(json);
+            
+            errorService("Your opinion is added", true);
+            setTimeout(()=>{
+               
+              
+                return Promise.resolve(json);
+            },4000);
+           
+        }else{
+            errorService("Opinion can't be added", false)
+        }
+    }catch (e) {
+        return Promise.reject(e);
+    }
+}
+
 function getProdById(prodId) {  
     getProdOpinion(prodId);
     getProductById(prodId)

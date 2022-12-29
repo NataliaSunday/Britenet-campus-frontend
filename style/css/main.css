@@ -914,6 +914,39 @@ html {
   margin: 0.5rem 0;
 }
 
+.opinion:hover {
+  background-color: #F1F1F1;
+}
+
+.addOpinion__heading {
+  margin-bottom: 1rem;
+}
+.addOpinion__form {
+  overflow: hidden;
+  transition: height 1s;
+  height: auto;
+}
+.addOpinion__star {
+  transition: fill 0.25s ease;
+  fill: #FFE880;
+  cursor: pointer;
+}
+
+#star:hover {
+  fill: red;
+}
+
+@keyframes formAddOpinion {
+  from {
+    height: 0;
+    opacity: 0;
+    animation: formAddOpinion 1s linear;
+  }
+  to {
+    height: auto;
+    opacity: 1;
+  }
+}
 .displayNone {
   display: none;
 }

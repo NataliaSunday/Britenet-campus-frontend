@@ -141,6 +141,8 @@ function seeOrder(orderId){
     })
 }
 
+
+
 const registerUser= async(e) => {
     e.preventDefault();
     let data = new FormData();
