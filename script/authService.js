@@ -12,7 +12,6 @@ const login = async (nickname, password) => {
 
         });
         if(response.status === 200){
-            console.log(nickname + " " + password)
             const json =await response.json();
             const token = json.token;
             localStorage.setItem('token', token);
@@ -21,7 +20,6 @@ const login = async (nickname, password) => {
     
         }else{
             localStorage.removeItem('token');
-         
             return Promise.reject();
         }
       
@@ -42,9 +40,7 @@ const getUserCart = async() =>{
             }
         });
             const json = await response.json();
-            console.log(json)
             const cartId = json.idCart;
-           console.log("id_cart" + json);
             localStorage.setItem('cartId', cartId);
             return Promise.resolve(json);
     }catch (e) {

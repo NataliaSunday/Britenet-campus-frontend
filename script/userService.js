@@ -6,7 +6,6 @@ const getUserOrderDataReq= async() => {
             }
         });
         const json = await response.json();
-        console.log(json);
         return Promise.resolve(json);
     }catch (e) {
         return Promise.reject(e);

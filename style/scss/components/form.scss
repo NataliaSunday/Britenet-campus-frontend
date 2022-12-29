@@ -169,3 +169,34 @@
         transform: translate(-50%, -100%);
     }
 }
+.opinions{
+   width: 100%;
+ 
+}
+.opinion{
+    color: $color-primary-dark;
+    @include display-flex-col-spaceBetween;
+    
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1rem;
+    @include boxShadow;
+
+    &__headingBox{
+        @include display-flex-row-spaceBetween;
+        &__heading{
+            font-weight: 400;
+            font-size: 1.15rem;
+            color: $color-third;
+        }
+        &__date{
+            font-style: italic;
+            color: $color-third;
+            font-size: 1.15rem;
+        }
+    }
+    &__rating{
+        display: flex;
+        margin: .5rem 0; 
+    }
+}

@@ -27,3 +27,13 @@ const getProductById = async ( productId ) => {
         return Promise.reject(e);
     }
 }
+const getProductOpinion = async (productId) => {
+    try{
+        const response = await fetch(`http://localhost:8081/api/v1/opinion/prodId/${productId}`)
+        const json = await response.json();
+        return Promise.resolve(json);
+    }catch (e) {
+        return Promise.reject(e);
+    }
+
+}

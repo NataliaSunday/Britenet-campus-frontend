@@ -17,12 +17,10 @@ function getCartContent(){
     
     getCartContentOfUser()
     .then( cartProduct => {
-        console.log(cartProduct)
         let totalPrice = 0;
         if(cartProduct.length  != 0){
             let cartProductElement = document.querySelector('#cart');
             cartProduct.forEach(cartProduct => {
-          console.log(cartProduct.product.imagePath)
           totalPrice += cartProduct.price;
                 cartProductElement.innerHTML += `
                 <tr class="table__row">

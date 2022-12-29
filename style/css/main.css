@@ -878,6 +878,42 @@ html {
     transform: translate(-50%, -100%);
   }
 }
+.opinions {
+  width: 100%;
+}
+
+.opinion {
+  color: #1F363D;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1rem;
+  box-shadow: 2.5px 2.5px 7px rgba(0, 0, 0, 0.3529411765);
+  border-radius: 2.5px;
+}
+.opinion__headingBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.opinion__headingBox__heading {
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: #40798C;
+}
+.opinion__headingBox__date {
+  font-style: italic;
+  color: #40798C;
+  font-size: 1.15rem;
+}
+.opinion__rating {
+  display: flex;
+  margin: 0.5rem 0;
+}
+
 .displayNone {
   display: none;
 }
