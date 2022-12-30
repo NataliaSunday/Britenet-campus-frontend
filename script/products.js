@@ -136,7 +136,10 @@ function getProdOpinion(prodId){
 
 function addOpinion(e,prodId){
     e.preventDefault();
-  
+    if(CKEDITOR.instances.opinion_content){
+        CKEDITOR.instances.opinion_content.destroy();
+        
+    }
     const addOpinions = document.querySelector('#addOpinion');
     let rating = 0;
   
@@ -161,7 +164,8 @@ function addOpinion(e,prodId){
          const form = document.getElementById("opinionForm");
          form.classList.toggle("displayNone");
         
-        
+       
+        let editor = CKEDITOR.replace( 'opinion_content' );
          const stars = document.querySelectorAll(".addOpinion__star");
        
 
@@ -179,7 +183,7 @@ function addOpinion(e,prodId){
         form.onsubmit = function(e){
             if(prodId != null && rating >0 ){
                 e.preventDefault();
-                insertOpinion( event, prodId, rating);
+                insertOpinion( event, prodId, rating, editor);
                 form.classList.add("displayNone");
                 stars.forEach( star  => {
                     star.style.fill ="#FFE880";
@@ -191,7 +195,9 @@ function addOpinion(e,prodId){
             }
         }
 }
-const insertOpinion = async(e, prodId,rating) => {
+
+const insertOpinion = async(e, prodId,rating,editor) => {
+    console.log(editor.getData());
     e.preventDefault();
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
@@ -204,7 +210,7 @@ const insertOpinion = async(e, prodId,rating) => {
     let data = new FormData();
     data.append("idProduct", prodId);
     data.append("opinionDate", today);
-    data.append("opinionContent", document.getElementById("opinion_content").value);
+    data.append("opinionContent", editor.getData());
     data.append("rating", rating);
   
 
