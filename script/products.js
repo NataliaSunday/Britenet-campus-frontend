@@ -197,7 +197,6 @@ function addOpinion(e,prodId){
 }
 
 const insertOpinion = async(e, prodId,rating,editor) => {
-    console.log(editor.getData());
     e.preventDefault();
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
@@ -205,17 +204,15 @@ const insertOpinion = async(e, prodId,rating,editor) => {
     let yyyy = today.getFullYear();
 
     today = yyyy +  '-' + mm + '-' + dd;
-   
 
     let data = new FormData();
+    console.log(editor.getData());
     data.append("idProduct", prodId);
     data.append("opinionDate", today);
     data.append("opinionContent", editor.getData());
     data.append("rating", rating);
   
-
     let dataJSON = Object.fromEntries(data.entries()); 
-
     
     try{
         const response = await fetch("http://localhost:8081/api/v1/opinion", {
@@ -232,9 +229,7 @@ const insertOpinion = async(e, prodId,rating,editor) => {
             console.log(json);
             
             errorService("Your opinion is added", true);
-            setTimeout(()=>{
-               
-              
+            setTimeout(()=>{ 
                 return Promise.resolve(json);
             },4000);
            
